@@ -4,7 +4,7 @@ import Check from "./Check";
 
 import { sound1 } from "./Sounds";
 
-const MAIN_ANIMATION_DURATION = 10000;
+const MAIN_ANIMATION_DURATION = 5000;
 const CLICK_ANIMATION_DURATION = 1000;
 
 const App: React.FC = () => {
