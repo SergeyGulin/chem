@@ -1,0 +1,157 @@
+/*
+  HTML code:	#205EB1
+
+	HTML code:	#409AE6
+
+	HTML code:	#DA0B35
+
+	HTML code:	#C20933
+*/
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+:root {
+  --formula-width: 5rem;
+  --main-animation-duration: 10s;
+  --click-animation-duration: 1s;
+}
+
+/* @media (orientation: landscape) {
+  .main {
+    visibility: hidden;
+  }
+} */
+
+.main {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  background: linear-gradient(to top left, #409ae6, #205eb1);
+
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* формула химического вещества
+********************************************************/
+
+.formula {
+  width: var(--formula-width);
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  background-color: white;
+  background: linear-gradient(to top left, white, #bbbbbb);
+
+  box-shadow: -0.5em 0 0.5em black;
+  color: black;
+  font-weight: 600;
+  padding: 5px;
+  border-radius: 0.2rem;
+  font-size: 1rem;
+
+  z-index: 10;
+}
+
+/* Начальная позиция падения
+********************************************************/
+
+.startPosition {
+  position: absolute;
+  top: 0;
+  left: calc(50% - var(--formula-width) / 2 - 0.3rem);
+}
+
+/* Конечная позиция падения
+********************************************************/
+
+.endPosition {
+  position: absolute;
+  top: 100%;
+  left: calc(50% - var(--formula-width) / 2 - 0.3rem);
+  transition: top var(--main-animation-duration) linear,
+    left var(--main-animation-duration) linear;
+  /* transition: top 10s cubic-bezier(0.29, 1.01, 1, -0.68),
+    left 10s cubic-bezier(0.29, 1.01, 1, -0.68); */
+}
+
+/* Вид копки с названием класса вещества
+********************************************************/
+
+.button {
+  width: var(--formula-width);
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  background: linear-gradient(to top left, #fb0b35, #c20933);
+  box-shadow: -0.5em 0 0.5em black;
+  color: white;
+  font-weight: 600;
+  padding: 5px;
+  border-radius: 0.2rem;
+  font-size: 1rem;
+}
+
+.scale {
+  transform: scale(1, 1) !important;
+}
+
+/* Координаты кнопок  для каждого вещества и их анимации
+********************************************************/
+.buttonPosition1 {
+  position: absolute;
+  top: calc(100% - 4rem);
+  left: 0.3rem;
+  color: #da0b35;
+  transform: scale(0.5, 0.5);
+  transition: top var(--click-animation-duration) ease,
+    left var(--click-animation-duration) ease,
+    transform var(--click-animation-duration) ease;
+}
+
+.buttonPosition2 {
+  position: absolute;
+  top: calc(100% - 4rem);
+  left: calc(100% - var(--formula-width) - 0.3rem);
+  color: #205eb1;
+  transform: scale(0.5, 0.5);
+  transition: top var(--click-animation-duration) ease,
+    left var(--click-animation-duration) ease,
+    transform var(--click-animation-duration) ease;
+}
+.buttonPosition3 {
+  position: absolute;
+  top: calc(100% - 8rem);
+  left: 0.3rem;
+  color: red;
+  transform: scale(0.5, 0.5);
+  transition: top var(--click-animation-duration) ease,
+    left var(--click-animation-duration) ease,
+    transform var(--click-animation-duration) ease;
+}
+
+.buttonPosition4 {
+  position: absolute;
+  top: calc(100% - 8rem);
+  left: calc(100% - var(--formula-width) - 0.3rem);
+  color: #205eb1;
+  transform: scale(0.5, 0.5);
+  transition: top var(--click-animation-duration) ease,
+    left var(--click-animation-duration) ease,
+    transform var(--click-animation-duration) ease;
+}
