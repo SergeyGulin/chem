@@ -74,7 +74,7 @@ const Check = (props: {
         handleClick={handleClick}
       />
       <ChemicalClassButton
-        name="Щёлочь"
+        name="Основание"
         className={
           chosenClassName === "startPosition" && checkNumber === 1
             ? "endPosition"

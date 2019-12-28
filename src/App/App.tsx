@@ -24,6 +24,7 @@ const App: React.FC = () => {
   }, []);
 
   const handleStartClick = useCallback(() => {
+    console.log("Нажата кнопка старт");
     setCheckNumber(1);
     sound1.play();
   }, []);

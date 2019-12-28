@@ -1,6 +1,6 @@
 {
   "name": "chem",
-  "homepage" : "https://vvtu.github.io/chem",
+  "homepage": "https://vvtu.github.io/chem",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

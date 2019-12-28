@@ -23,7 +23,7 @@ code {
 }
 
 :root {
-  --formula-width: 5rem;
+  --formula-width: 6rem;
   --main-animation-duration: 10s;
   --click-animation-duration: 1s;
 }
