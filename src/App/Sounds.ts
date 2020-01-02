@@ -4,3 +4,6 @@ export const sound1 = new Audio(
 export const sound2 = new Audio(
   process.env.PUBLIC_URL + "/sounds/135510__chriddof__space-bloop.wav"
 );
+export const sound3 = new Audio(
+  process.env.PUBLIC_URL + "/sounds/432761__xpoki__lazershot.wav"
+);

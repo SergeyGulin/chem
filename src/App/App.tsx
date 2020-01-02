@@ -2,6 +2,8 @@ import React, { useState, useCallback, useEffect } from "react";
 
 import Check from "./Check";
 
+import { formulas } from "./Chemicals";
+
 import { sound1 } from "./Sounds";
 
 const MAIN_ANIMATION_DURATION = 10000;
@@ -45,6 +47,7 @@ const App: React.FC = () => {
       ) : (
         <Check
           key={checkNumber}
+          formula={formulas[checkNumber - 1]}
           checkNumber={checkNumber}
           handleFinishEvent={handleFinishEvent}
           mainAnimationDuration={MAIN_ANIMATION_DURATION}
