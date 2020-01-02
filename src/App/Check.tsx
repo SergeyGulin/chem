@@ -54,13 +54,15 @@ const Check = (props: {
 
   return (
     <div className="main">
-      <div className={"formula " + chosenClassName}>{formula}</div>
+      <div className={"formula " + chosenClassName + " endPositionTransition"}>
+        {formula}
+      </div>
       <ChemicalClassButton
         name="Кислота"
         className={
           chosenClassName === "startPosition" && checkNumber === 1
             ? "endPosition"
-            : "buttonPosition1"
+            : "buttonPosition1 buttonPositionTransition"
         }
         handleClick={handleClick}
       />
@@ -69,7 +71,7 @@ const Check = (props: {
         className={
           chosenClassName === "startPosition" && checkNumber === 1
             ? "endPosition"
-            : "buttonPosition2"
+            : "buttonPosition2 buttonPositionTransition"
         }
         handleClick={handleClick}
       />
@@ -78,7 +80,7 @@ const Check = (props: {
         className={
           chosenClassName === "startPosition" && checkNumber === 1
             ? "endPosition"
-            : "buttonPosition3"
+            : "buttonPosition3 buttonPositionTransition"
         }
         handleClick={handleClick}
       />
@@ -87,7 +89,7 @@ const Check = (props: {
         className={
           chosenClassName === "startPosition" && checkNumber === 1
             ? "endPosition"
-            : "buttonPosition4"
+            : "buttonPosition4 buttonPositionTransition"
         }
         handleClick={handleClick}
       />

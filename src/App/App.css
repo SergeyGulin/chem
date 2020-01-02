@@ -84,10 +84,16 @@ code {
   position: absolute;
   top: 100%;
   left: calc(50% - var(--formula-width) / 2 - 0.3rem);
-  transition: top var(--main-animation-duration) linear,
-    left var(--main-animation-duration) linear;
+
   /* transition: top 10s cubic-bezier(0.29, 1.01, 1, -0.68),
     left 10s cubic-bezier(0.29, 1.01, 1, -0.68); */
+}
+
+/* Transition падения
+********************************************************/
+.endPositionTransition {
+  transition: top var(--main-animation-duration) linear,
+    left var(--main-animation-duration) linear;
 }
 
 /* Вид копки с названием класса вещества
@@ -107,7 +113,7 @@ code {
   font-size: 1rem;
 }
 
-.scale {
+.scale1-1 {
   transform: scale(1, 1) !important;
 }
 
@@ -118,10 +124,6 @@ code {
   top: calc(100% - 4rem);
   left: 0.3rem;
   color: #da0b35;
-  transform: scale(0.5, 0.5);
-  transition: top var(--click-animation-duration) ease,
-    left var(--click-animation-duration) ease,
-    transform var(--click-animation-duration) ease;
 }
 
 .buttonPosition2 {
@@ -129,20 +131,12 @@ code {
   top: calc(100% - 4rem);
   left: calc(100% - var(--formula-width) - 0.3rem);
   color: #205eb1;
-  transform: scale(0.5, 0.5);
-  transition: top var(--click-animation-duration) ease,
-    left var(--click-animation-duration) ease,
-    transform var(--click-animation-duration) ease;
 }
 .buttonPosition3 {
   position: absolute;
   top: calc(100% - 8rem);
   left: 0.3rem;
   color: red;
-  transform: scale(0.5, 0.5);
-  transition: top var(--click-animation-duration) ease,
-    left var(--click-animation-duration) ease,
-    transform var(--click-animation-duration) ease;
 }
 
 .buttonPosition4 {
@@ -150,6 +144,11 @@ code {
   top: calc(100% - 8rem);
   left: calc(100% - var(--formula-width) - 0.3rem);
   color: #205eb1;
+}
+
+/* Transition нажатия кнопки
+********************************************************/
+.buttonPositionTransition {
   transform: scale(0.5, 0.5);
   transition: top var(--click-animation-duration) ease,
     left var(--click-animation-duration) ease,

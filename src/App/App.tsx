@@ -4,8 +4,10 @@ import Check from "./Check";
 
 import { sound1 } from "./Sounds";
 
-const MAIN_ANIMATION_DURATION = 5000;
+const MAIN_ANIMATION_DURATION = 10000;
 const CLICK_ANIMATION_DURATION = 1000;
+
+const CHECKS_NUMBER = 5;
 
 const App: React.FC = () => {
   const [checkNumber, setCheckNumber] = useState(0);
@@ -31,7 +33,7 @@ const App: React.FC = () => {
 
   const handleFinishEvent = useCallback(() => {
     console.log("handleFinishEvent fired");
-    setCheckNumber(checkNumber > 5 ? 0 : checkNumber + 1);
+    setCheckNumber(checkNumber > CHECKS_NUMBER ? 0 : checkNumber + 1);
   }, [checkNumber]);
 
   return (

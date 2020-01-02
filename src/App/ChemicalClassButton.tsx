@@ -5,7 +5,7 @@ const ChemicalClassButton = (props: {
   className: string;
   handleClick: (str: string) => void;
 }): JSX.Element => (
-  <div className={props.className + " scale"}>
+  <div className={props.className + " scale1-1"}>
     <button
       className="button"
       onClick={() => props.handleClick(props.className)}
