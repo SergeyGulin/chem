@@ -62,7 +62,7 @@ const Check = (props: {
         className={
           chosenClassName === "startPosition" && checkNumber === 1
             ? "endPosition"
-            : "buttonPosition1 buttonPositionTransition"
+            : "buttonPosition1"
         }
         handleClick={handleClick}
       />
@@ -71,7 +71,7 @@ const Check = (props: {
         className={
           chosenClassName === "startPosition" && checkNumber === 1
             ? "endPosition"
-            : "buttonPosition2 buttonPositionTransition"
+            : "buttonPosition2"
         }
         handleClick={handleClick}
       />
@@ -80,7 +80,7 @@ const Check = (props: {
         className={
           chosenClassName === "startPosition" && checkNumber === 1
             ? "endPosition"
-            : "buttonPosition3 buttonPositionTransition"
+            : "buttonPosition3"
         }
         handleClick={handleClick}
       />
@@ -89,7 +89,7 @@ const Check = (props: {
         className={
           chosenClassName === "startPosition" && checkNumber === 1
             ? "endPosition"
-            : "buttonPosition4 buttonPositionTransition"
+            : "buttonPosition4"
         }
         handleClick={handleClick}
       />

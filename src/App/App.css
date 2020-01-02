@@ -61,7 +61,8 @@ code {
   box-shadow: -0.5em 0 0.5em black;
   color: black;
   font-weight: 600;
-  padding: 5px;
+  padding: 0.5rem;
+  border: none;
   border-radius: 0.2rem;
   font-size: 1rem;
 
@@ -108,7 +109,8 @@ code {
   box-shadow: -0.5em 0 0.5em black;
   color: white;
   font-weight: 600;
-  padding: 5px;
+  padding: 0.6rem;
+  border: none;
   border-radius: 0.2rem;
   font-size: 1rem;
 }
@@ -122,33 +124,36 @@ code {
 .buttonPosition1 {
   position: absolute;
   top: calc(100% - 4rem);
-  left: 0.3rem;
+  left: 0.8rem;
   color: #da0b35;
 }
 
 .buttonPosition2 {
   position: absolute;
   top: calc(100% - 4rem);
-  left: calc(100% - var(--formula-width) - 0.3rem);
+  left: calc(100% - var(--formula-width) - 0.8rem);
   color: #205eb1;
 }
 .buttonPosition3 {
   position: absolute;
   top: calc(100% - 8rem);
-  left: 0.3rem;
+  left: 0.8rem;
   color: red;
 }
 
 .buttonPosition4 {
   position: absolute;
   top: calc(100% - 8rem);
-  left: calc(100% - var(--formula-width) - 0.3rem);
+  left: calc(100% - var(--formula-width) - 0.8rem);
   color: #205eb1;
 }
 
 /* Transition нажатия кнопки
 ********************************************************/
-.buttonPositionTransition {
+.buttonPosition1,
+.buttonPosition2,
+.buttonPosition3,
+.buttonPosition4 {
   transform: scale(0.5, 0.5);
   transition: top var(--click-animation-duration) ease,
     left var(--click-animation-duration) ease,
