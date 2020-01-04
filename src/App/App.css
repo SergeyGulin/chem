@@ -52,18 +52,16 @@ code {
 
 .formula {
   width: var(--formula-width);
-  display: flex;
-  align-content: center;
-  justify-content: center;
+  text-align: center;
   background-color: white;
   background: linear-gradient(to top left, white, #bbbbbb);
 
   box-shadow: -0.5em 0 0.5em black;
   color: black;
   font-weight: 600;
-  padding: 0.5rem;
+  padding: 0.5rem 0;
   border: none;
-  border-radius: 0.2rem;
+  border-radius: 1.5rem;
   font-size: 1rem;
 
   z-index: 10;
@@ -102,16 +100,14 @@ code {
 
 .button {
   width: var(--formula-width);
-  display: flex;
-  align-content: center;
-  justify-content: center;
+  text-align: center;
   background: linear-gradient(to top left, #fb0b35, #c20933);
   box-shadow: -0.5em 0 0.5em black;
   color: white;
   font-weight: 600;
-  padding: 0.6rem;
+  padding: 0.6rem 0;
   border: none;
-  border-radius: 0.2rem;
+  border-radius: 1.5rem;
   font-size: 1rem;
 }
 
@@ -165,9 +161,11 @@ code {
 .score {
   position: absolute;
   top: 0.2rem;
-  left: calc(100% - 3rem);
+  left: calc(100% - var(--formula-width) - 0.2rem);
   color: #c20933;
-  font-size: 4rem;
+  font-size: 3rem;
+  width: var(--formula-width);
+  text-align: center;
 }
 
 .check-number {
@@ -175,5 +173,7 @@ code {
   top: 0.2rem;
   left: 0rem;
   color: white;
-  font-size: 4rem;
+  font-size: 3rem;
+  width: var(--formula-width);
+  text-align: center;
 }
