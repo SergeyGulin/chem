@@ -4,7 +4,7 @@ import Check from "./Check";
 
 import { formulas, reshuffle } from "./Chemicals";
 
-import { sound1 } from "./Sounds";
+import { sound } from "./Sounds";
 
 const MAIN_ANIMATION_DURATION = 10000;
 const CLICK_ANIMATION_DURATION = 1000;
@@ -36,7 +36,7 @@ const App: React.FC = () => {
     console.log("newResufledFormulas = ", newResufledFormulas);
     setCheckNumber(1);
     setScore(0);
-    sound1.play();
+    sound(0);
   }, []);
 
   const handleFinishEvent = useCallback(

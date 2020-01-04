@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
 
 import ChemicalClassButton from "./ChemicalClassButton";
-import { sound2, sound3 } from "./Sounds";
+import { sound } from "./Sounds";
 import { ButtonClickedType, ChemicalType } from "./Chemicals";
 
 type StateType = "zero" | "zero+" | ButtonClickedType;
@@ -45,20 +45,19 @@ const Check = (props: {
     (str: ButtonClickedType) => {
       if (state === "zero+") {
         setState(str);
-        let sound: HTMLAudioElement;
+        let soundNumber: number;
         let result: boolean | undefined;
 
         if (props.formula.type === str) {
-          sound = sound2;
+          soundNumber = 1;
           result = true;
         } else {
-          sound = sound3;
+          soundNumber = 2;
           result = false;
         }
-        sound.play();
+        sound(soundNumber);
+
         setTimeout(() => {
-          sound.pause(); // stop playing
-          sound.currentTime = 0;
           props.handleFinishEvent(result);
         }, props.clickAnimationDuration + 100);
       }
