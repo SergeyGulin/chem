@@ -7,6 +7,7 @@ const audioPaths = [
   process.env.PUBLIC_URL + "/sounds/432761__xpoki__lazershot.wav" // false shot
 ];
 
+// https://stackoverflow.com/questions/47204048/play-multiple-audio-files-on-safari-at-once
 // utility function to load an audio file and resolve it as a decoded audio buffer
 function getBuffer(url: string, audioCtx: AudioContext) {
   return new Promise((resolve, reject) => {

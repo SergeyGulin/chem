@@ -26,6 +26,8 @@ code {
   --formula-width: 6rem;
   --main-animation-duration: 10s;
   --click-animation-duration: 1s;
+
+  --easingFunction: cubic-bezier(0.6, -0.28, 0.735, 0.045);
 }
 
 /* @media (orientation: landscape) {
@@ -153,11 +155,13 @@ code {
 .score,
 .check-number {
   transform: scale(0.5, 0.5);
-  transition: top var(--click-animation-duration) ease,
-    left var(--click-animation-duration) ease,
-    transform var(--click-animation-duration) ease;
+  transition: top var(--click-animation-duration) var(--easingFunction),
+    left var(--click-animation-duration) var(--easingFunction),
+    transform var(--click-animation-duration) var(--easingFunction);
 }
 
+/* Score info
+********************************************************/
 .score {
   position: absolute;
   top: 0.2rem;
@@ -168,6 +172,8 @@ code {
   text-align: center;
 }
 
+/* Check info
+********************************************************/
 .check-number {
   position: absolute;
   top: 0.2rem;
