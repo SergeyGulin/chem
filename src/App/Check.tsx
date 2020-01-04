@@ -14,11 +14,13 @@ const buttons = {
 };
 
 const Check = (props: {
-  formula: ChemicalType;
   checkNumber: number;
+  checksTotal: number;
+  clickAnimationDuration: number;
+  formula: ChemicalType;
   handleFinishEvent: (_: boolean | undefined) => void;
   mainAnimationDuration: number;
-  clickAnimationDuration: number;
+  score: number;
 }): JSX.Element => {
   const [state, setState] = useState<StateType>("zero");
   const { checkNumber } = props;
@@ -69,6 +71,9 @@ const Check = (props: {
   let button2 = "buttonPosition2";
   let button3 = "buttonPosition3";
   let button4 = "buttonPosition4";
+  let scoreClass = "score";
+  let checkNumberClass = "check-number";
+
   switch (state) {
     case "zero":
       formulaPositionClass = "formula startPosition";
@@ -77,6 +82,8 @@ const Check = (props: {
         button2 = "endPosition";
         button3 = "endPosition";
         button4 = "endPosition";
+        scoreClass = "endPosition";
+        checkNumberClass = "endPosition";
       }
       break;
     case "zero+":
@@ -85,6 +92,8 @@ const Check = (props: {
       button2 = "buttonPosition2";
       button3 = "buttonPosition3";
       button4 = "buttonPosition4";
+      scoreClass = "score";
+      checkNumberClass = "check-number";
       break;
     default:
       formulaPositionClass = "formula " + buttons[state];
@@ -95,7 +104,14 @@ const Check = (props: {
 
   return (
     <div className="main">
+      <div className={scoreClass}>{props.score}</div>
+
+      <div className={checkNumberClass}>
+        {`${props.checkNumber} / ${props.checksTotal}`}
+      </div>
+
       <div className={formulaPositionClass}>{props.formula.formula}</div>
+
       <ChemicalClassButton
         name="Кислота"
         className={button1}

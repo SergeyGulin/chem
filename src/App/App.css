@@ -125,7 +125,7 @@ code {
   position: absolute;
   top: calc(100% - 4rem);
   left: 0.8rem;
-  color: #da0b35;
+  /* color: #da0b35; */
 }
 
 .buttonPosition2 {
@@ -138,14 +138,14 @@ code {
   position: absolute;
   top: calc(100% - 8rem);
   left: 0.8rem;
-  color: red;
+  /* color: red; */
 }
 
 .buttonPosition4 {
   position: absolute;
   top: calc(100% - 8rem);
   left: calc(100% - var(--formula-width) - 0.8rem);
-  color: #205eb1;
+  /* color: #205eb1; */
 }
 
 /* Transition нажатия кнопки
@@ -153,9 +153,27 @@ code {
 .buttonPosition1,
 .buttonPosition2,
 .buttonPosition3,
-.buttonPosition4 {
+.buttonPosition4,
+.score,
+.check-number {
   transform: scale(0.5, 0.5);
   transition: top var(--click-animation-duration) ease,
     left var(--click-animation-duration) ease,
     transform var(--click-animation-duration) ease;
+}
+
+.score {
+  position: absolute;
+  top: 0.2rem;
+  left: calc(100% - 3rem);
+  color: #c20933;
+  font-size: 4rem;
+}
+
+.check-number {
+  position: absolute;
+  top: 0.2rem;
+  left: 0rem;
+  color: white;
+  font-size: 4rem;
 }
