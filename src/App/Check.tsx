@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect } from "react";
 
 import ChemicalClassButton from "./ChemicalClassButton";
 import { sound } from "./Sounds";
-import { ButtonClickedType, ChemicalType } from "./Chemicals";
+import { ButtonClickedType, ChemicalType } from "./ChemicalData";
 
 type StateType = "zero" | "zero+" | ButtonClickedType;
 
@@ -23,6 +23,8 @@ const Check = (props: {
   score: number;
 }): JSX.Element => {
   const [state, setState] = useState<StateType>("zero");
+  const [showPrompt, setShowPrompt] = useState(false);
+
   const { checkNumber } = props;
 
   useEffect(() => {
@@ -75,14 +77,14 @@ const Check = (props: {
 
   switch (state) {
     case "zero":
-      formulaPositionClass = "formula startPosition";
+      formulaPositionClass = "startPosition";
       if (checkNumber === 1) {
         button1 = "endPosition";
         button2 = "endPosition";
         button3 = "endPosition";
         button4 = "endPosition";
-        scoreClass = "endPosition";
-        checkNumberClass = "endPosition";
+        scoreClass = "startPosition";
+        checkNumberClass = "startPosition";
       } else {
         button1 = "buttonPosition1 transition-true";
         button2 = "buttonPosition2 transition-true";
@@ -93,7 +95,7 @@ const Check = (props: {
       }
       break;
     case "zero+":
-      formulaPositionClass = "formula endPosition endPositionTransition";
+      formulaPositionClass = "endPosition endPositionTransition";
       button1 = "buttonPosition1 transition-true";
       button2 = "buttonPosition2 transition-true";
       button3 = "buttonPosition3 transition-true";
@@ -102,7 +104,7 @@ const Check = (props: {
       checkNumberClass = "check-number transition-true";
       break;
     default:
-      formulaPositionClass = `formula ${buttons[state]} ${
+      formulaPositionClass = `${buttons[state]} ${
         props.formula.type === state ? " transition-true" : " transition-false"
       }`;
       button1 = "buttonPosition1";
@@ -124,7 +126,12 @@ const Check = (props: {
         {`${props.checkNumber} / ${props.checksTotal}`}
       </div>
 
-      <div className={formulaPositionClass}>{props.formula.formula}</div>
+      <div className={formulaPositionClass}>
+        <button className="formula" onClick={() => setShowPrompt(true)}>
+          {props.formula.formula}
+        </button>
+        {showPrompt && <div>{props.formula.text}</div>}
+      </div>
 
       <ChemicalClassButton
         name="Кислота"

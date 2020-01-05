@@ -24,8 +24,6 @@ code {
 
 :root {
   --formula-width: 6rem;
-  --main-animation-duration: 10s;
-  --click-animation-duration: 1s;
 
   --easing-function-false: cubic-bezier(0.6, -0.28, 0.735, 0.045);
   --easing-function-true: ease;
@@ -52,7 +50,7 @@ code {
     linear,
     left top,
     right top,
-    color-stop(0.34, rgba(230, 237, 241, 0.05)),
+    color-stop(0.34, rgba(230, 237, 241, 0.1)),
     color-stop(0.67, rgba(230, 237, 241, 0))
   );
   background-size: 8px 8px;
@@ -66,7 +64,7 @@ code {
   width: var(--formula-width);
   text-align: center;
   /* background-color: white; */
-  background: linear-gradient(to top left, white, #bbbbbb);
+  background: linear-gradient(to top, #bbbbbb, white);
 
   box-shadow: 0px 3px rgba(128, 128, 128, 1),
     /* gradient effects */ 0px 4px rgba(118, 118, 118, 1),
@@ -89,7 +87,7 @@ code {
 }
 
 .button {
-  color: #aebf3b;
+  color: #a0b809;
 }
 
 /* Начальная позиция падения

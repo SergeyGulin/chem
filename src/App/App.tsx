@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect } from "react";
 
 import Check from "./Check";
 
-import { formulas, reshuffle } from "./Chemicals";
+import { formulas, reshuffle } from "./ChemicalData";
 
 import { sound } from "./Sounds";
 

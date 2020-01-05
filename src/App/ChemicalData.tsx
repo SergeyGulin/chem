@@ -6,7 +6,7 @@ export type ChemicalType = {
   name: string;
   type: ButtonClickedType;
   formula: JSX.Element;
-  text?: string;
+  text: string;
 };
 
 export function reshuffle<T>(arr: T[]): T[] {
@@ -18,6 +18,7 @@ export function reshuffle<T>(arr: T[]): T[] {
 export const formulas: ChemicalType[] = [
   {
     name: "Серная кислота",
+    text: "Очень едкое вещество",
     type: "Кислота",
     formula: (
       <div>
@@ -27,11 +28,13 @@ export const formulas: ChemicalType[] = [
   },
   {
     name: "Соляная кислота",
+    text: "Прозрачная едкая жидкость",
     type: "Кислота",
     formula: <div>HCl</div>
   },
   {
     name: "Гидроксид аммония",
+    text: "Сульфид аммония",
     type: "Основание",
     formula: (
       <div>
@@ -41,6 +44,7 @@ export const formulas: ChemicalType[] = [
   },
   {
     name: "Cульфит натрия",
+    text: "Cульфит натрия",
     type: "Соль",
     formula: (
       <div>
@@ -50,6 +54,7 @@ export const formulas: ChemicalType[] = [
   },
   {
     name: "Вода (оксид водорода)",
+    text: "Вода",
     type: "Оксид",
     formula: (
       <div>

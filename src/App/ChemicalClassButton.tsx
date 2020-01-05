@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ButtonClickedType } from "./Chemicals";
+import { ButtonClickedType } from "./ChemicalData";
 
 const ChemicalClassButton = (props: {
   name: ButtonClickedType;
