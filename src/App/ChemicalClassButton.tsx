@@ -8,7 +8,10 @@ const ChemicalClassButton = (props: {
   handleClick: (str: ButtonClickedType) => void;
 }): JSX.Element => (
   <div className={props.className + " scale1-1"}>
-    <button className="button" onClick={() => props.handleClick(props.name)}>
+    <button
+      className="buttonView"
+      onClick={() => props.handleClick(props.name)}
+    >
       {props.name}
     </button>
   </div>

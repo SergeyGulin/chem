@@ -126,13 +126,6 @@ const Check = (props: {
         {`${props.checkNumber} / ${props.checksTotal}`}
       </div>
 
-      <div className={formulaPositionClass}>
-        <button className="formula" onClick={() => setShowPrompt(true)}>
-          {props.formula.formula}
-        </button>
-        {showPrompt && <div>{props.formula.text}</div>}
-      </div>
-
       <ChemicalClassButton
         name="Кислота"
         className={button1}
@@ -153,6 +146,13 @@ const Check = (props: {
         className={button4}
         handleClick={handleClick}
       />
+
+      <div className={formulaPositionClass}>
+        <button className="formulaView" onClick={() => setShowPrompt(true)}>
+          {props.formula.formula}
+        </button>
+        {showPrompt && <div>{props.formula.text}</div>}
+      </div>
     </div>
   );
 };

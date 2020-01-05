@@ -59,8 +59,8 @@ code {
 /* формула химического вещества и копки с названием классов веществ
 ******************************************************************/
 
-.formula,
-.button {
+.formulaView,
+.buttonView {
   width: var(--formula-width);
   text-align: center;
   /* background-color: white; */
@@ -78,15 +78,13 @@ code {
   border: none;
   border-radius: 0.5rem;
   font-size: 1rem;
-
-  z-index: 10;
 }
 
-.formula {
+.formulaView {
   color: black;
 }
 
-.button {
+.buttonView {
   color: #a0b809;
 }
 
