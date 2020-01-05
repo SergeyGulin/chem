@@ -66,12 +66,12 @@ const Check = (props: {
   );
 
   let formulaPositionClass: string;
-  let button1 = "buttonPosition1";
-  let button2 = "buttonPosition2";
-  let button3 = "buttonPosition3";
-  let button4 = "buttonPosition4";
-  let scoreClass = "score";
-  let checkNumberClass = "check-number";
+  let button1: string;
+  let button2: string;
+  let button3: string;
+  let button4: string;
+  let scoreClass: string;
+  let checkNumberClass: string;
 
   switch (state) {
     case "zero":
@@ -83,19 +83,34 @@ const Check = (props: {
         button4 = "endPosition";
         scoreClass = "endPosition";
         checkNumberClass = "endPosition";
+      } else {
+        button1 = "buttonPosition1 transition-true";
+        button2 = "buttonPosition2 transition-true";
+        button3 = "buttonPosition3 transition-true";
+        button4 = "buttonPosition4 transition-true";
+        scoreClass = "score transition-true";
+        checkNumberClass = "check-number transition-true";
       }
       break;
     case "zero+":
       formulaPositionClass = "formula endPosition endPositionTransition";
+      button1 = "buttonPosition1 transition-true";
+      button2 = "buttonPosition2 transition-true";
+      button3 = "buttonPosition3 transition-true";
+      button4 = "buttonPosition4 transition-true";
+      scoreClass = "score transition-true";
+      checkNumberClass = "check-number transition-true";
+      break;
+    default:
+      formulaPositionClass = `formula ${buttons[state]} ${
+        props.formula.type === state ? " transition-true" : " transition-false"
+      }`;
       button1 = "buttonPosition1";
       button2 = "buttonPosition2";
       button3 = "buttonPosition3";
       button4 = "buttonPosition4";
       scoreClass = "score";
       checkNumberClass = "check-number";
-      break;
-    default:
-      formulaPositionClass = "formula " + buttons[state];
       console.log("state =  ", state);
       console.log("formulaPositionClass =  ", formulaPositionClass);
       break;

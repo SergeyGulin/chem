@@ -6,13 +6,13 @@ import { formulas, reshuffle } from "./Chemicals";
 
 import { sound } from "./Sounds";
 
-const MAIN_ANIMATION_DURATION = 10000;
+const MAIN_ANIMATION_DURATION = 1000000;
 const CLICK_ANIMATION_DURATION = 1000;
 
 const CHECKS_TOTAL = 5;
 
 const App: React.FC = () => {
-  const [checkNumber, setCheckNumber] = useState(0);
+  const [checkNumber, setCheckNumber] = useState(1);
   const [resufledFormulas, setResufledFormulas] = useState(formulas);
   const [score, setScore] = useState(0);
 

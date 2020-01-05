@@ -27,7 +27,8 @@ code {
   --main-animation-duration: 10s;
   --click-animation-duration: 1s;
 
-  --easingFunction: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  --easing-function-false: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  --easing-function-true: ease;
 }
 
 /* @media (orientation: landscape) {
@@ -43,34 +44,56 @@ code {
   left: 0;
   right: 0;
   overflow: hidden;
-  background: linear-gradient(to top left, #409ae6, #205eb1);
-
-  -webkit-text-size-adjust: none;
   text-size-adjust: none;
+
+  /* background: linear-gradient(to top left, #409ae6, #205eb1); */
+  background: #a7a9ac;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    color-stop(0.34, rgba(230, 237, 241, 0.05)),
+    color-stop(0.67, rgba(230, 237, 241, 0))
+  );
+  background-size: 8px 8px;
 }
 
-/* формула химического вещества
-********************************************************/
+/* формула химического вещества и копки с названием классов веществ
+******************************************************************/
 
-.formula {
+.formula,
+.button {
   width: var(--formula-width);
   text-align: center;
-  background-color: white;
+  /* background-color: white; */
   background: linear-gradient(to top left, white, #bbbbbb);
 
-  box-shadow: -0.5em 0 0.5em black;
-  color: black;
+  box-shadow: 0px 3px rgba(128, 128, 128, 1),
+    /* gradient effects */ 0px 4px rgba(118, 118, 118, 1),
+    0px 5px rgba(108, 108, 108, 1), 0px 6px rgba(98, 98, 98, 1),
+    0px 7px rgba(88, 88, 88, 1), 0px 8px rgba(78, 78, 78, 1),
+    0px 14px 6px -1px rgba(128, 128, 128, 1); /* shadow */
+
+  /* box-shadow: -0.5em 0 0.5em black; */
   font-weight: 600;
   padding: 0.5rem 0;
   border: none;
-  border-radius: 1.5rem;
+  border-radius: 0.5rem;
   font-size: 1rem;
 
   z-index: 10;
 }
 
+.formula {
+  color: black;
+}
+
+.button {
+  color: #aebf3b;
+}
+
 /* Начальная позиция падения
-********************************************************/
+******************************************************************/
 
 .startPosition {
   position: absolute;
@@ -79,7 +102,7 @@ code {
 }
 
 /* Конечная позиция падения
-********************************************************/
+******************************************************************/
 
 .endPosition {
   position: absolute;
@@ -91,34 +114,20 @@ code {
 }
 
 /* Transition падения
-********************************************************/
+******************************************************************/
 .endPositionTransition {
   transition: top var(--main-animation-duration) linear,
     left var(--main-animation-duration) linear;
 }
 
-/* Вид копки с названием класса вещества
-********************************************************/
-
-.button {
-  width: var(--formula-width);
-  text-align: center;
-  background: linear-gradient(to top left, #fb0b35, #c20933);
-  box-shadow: -0.5em 0 0.5em black;
-  color: white;
-  font-weight: 600;
-  padding: 0.6rem 0;
-  border: none;
-  border-radius: 1.5rem;
-  font-size: 1rem;
-}
-
+/* Helper
+******************************************************************/
 .scale1-1 {
   transform: scale(1, 1) !important;
 }
 
 /* Координаты кнопок  для каждого вещества и их анимации
-********************************************************/
+******************************************************************/
 .buttonPosition1 {
   position: absolute;
   top: calc(100% - 4rem);
@@ -130,7 +139,7 @@ code {
   position: absolute;
   top: calc(100% - 4rem);
   left: calc(100% - var(--formula-width) - 0.8rem);
-  color: #205eb1;
+  /* color: #205eb1; */
 }
 .buttonPosition3 {
   position: absolute;
@@ -146,22 +155,26 @@ code {
   /* color: #205eb1; */
 }
 
-/* Transition нажатия кнопки
-********************************************************/
-.buttonPosition1,
-.buttonPosition2,
-.buttonPosition3,
-.buttonPosition4,
-.score,
-.check-number {
+/* Transition успешного нажатия кнопки
+******************************************************************/
+.transition-true {
   transform: scale(0.5, 0.5);
-  transition: top var(--click-animation-duration) var(--easingFunction),
-    left var(--click-animation-duration) var(--easingFunction),
-    transform var(--click-animation-duration) var(--easingFunction);
+  transition: top var(--click-animation-duration) var(--easing-function-true),
+    left var(--click-animation-duration) var(--easing-function-true),
+    transform var(--click-animation-duration) var(--easing-function-true);
+}
+
+/* Transition ошибочного нажатия кнопки
+******************************************************************/
+.transition-false {
+  transform: scale(0.5, 0.5);
+  transition: top var(--click-animation-duration) var(--easing-function-false),
+    left var(--click-animation-duration) var(--easing-function-false),
+    transform var(--click-animation-duration) var(--easing-function-false);
 }
 
 /* Score info
-********************************************************/
+******************************************************************/
 .score {
   position: absolute;
   top: 0.2rem;
@@ -173,7 +186,7 @@ code {
 }
 
 /* Check info
-********************************************************/
+******************************************************************/
 .check-number {
   position: absolute;
   top: 0.2rem;
