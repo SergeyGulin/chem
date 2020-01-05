@@ -4,7 +4,7 @@ import ChemicalClassButton from "./ChemicalClassButton";
 import { sound } from "./Sounds";
 import { ButtonClickedType, ChemicalType } from "./ChemicalData";
 
-type StateType = "zero" | "zero+" | ButtonClickedType;
+type StateType = "zero" | "zero+" | "zero+false" | ButtonClickedType;
 
 const buttons = {
   Кислота: "buttonPosition1",
@@ -47,21 +47,18 @@ const Check = (props: {
     (str: ButtonClickedType) => {
       if (state === "zero+") {
         setState(str);
-        let soundNumber: number;
-        let result: boolean | undefined;
-
-        if (props.formula.type === str) {
-          soundNumber = 1;
-          result = true;
-        } else {
-          soundNumber = 2;
-          result = false;
-        }
+        const result = props.formula.type === str;
+        const soundNumber = result ? 1 : 2;
         sound(soundNumber);
-
+        if (!result) {
+          setTimeout(
+            () => setState("zero+false"),
+            props.clickAnimationDuration + 100
+          );
+        }
         setTimeout(() => {
           props.handleFinishEvent(result);
-        }, props.clickAnimationDuration + 100);
+        }, (props.clickAnimationDuration + 100) * (result ? 1 : 2));
       }
     },
     [props, state]
@@ -95,6 +92,7 @@ const Check = (props: {
       }
       break;
     case "zero+":
+    case "zero+false":
       formulaPositionClass = "endPosition endPositionTransition";
       button1 = "buttonPosition1 transition-true";
       button2 = "buttonPosition2 transition-true";

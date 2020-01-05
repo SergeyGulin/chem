@@ -6,7 +6,7 @@ import { formulas, reshuffle } from "./ChemicalData";
 
 import { sound } from "./Sounds";
 
-const MAIN_ANIMATION_DURATION = 1000000;
+const MAIN_ANIMATION_DURATION = 10000;
 const CLICK_ANIMATION_DURATION = 1000;
 
 const CHECKS_TOTAL = 5;

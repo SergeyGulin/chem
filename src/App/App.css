@@ -85,7 +85,7 @@ code {
 }
 
 .buttonView {
-  color: #a0b809;
+  color: maroon;
 }
 
 /* Начальная позиция падения
@@ -128,27 +128,23 @@ code {
   position: absolute;
   top: calc(100% - 4rem);
   left: 0.8rem;
-  /* color: #da0b35; */
 }
 
 .buttonPosition2 {
   position: absolute;
   top: calc(100% - 4rem);
   left: calc(100% - var(--formula-width) - 0.8rem);
-  /* color: #205eb1; */
 }
 .buttonPosition3 {
   position: absolute;
   top: calc(100% - 8rem);
   left: 0.8rem;
-  /* color: red; */
 }
 
 .buttonPosition4 {
   position: absolute;
   top: calc(100% - 8rem);
   left: calc(100% - var(--formula-width) - 0.8rem);
-  /* color: #205eb1; */
 }
 
 /* Transition успешного нажатия кнопки
@@ -175,7 +171,7 @@ code {
   position: absolute;
   top: 0.2rem;
   left: calc(100% - var(--formula-width) - 0.2rem);
-  color: #c20933;
+  color: maroon;
   font-size: 3rem;
   width: var(--formula-width);
   text-align: center;
@@ -187,7 +183,7 @@ code {
   position: absolute;
   top: 0.2rem;
   left: 0rem;
-  color: white;
+  color: black;
   font-size: 3rem;
   width: var(--formula-width);
   text-align: center;
