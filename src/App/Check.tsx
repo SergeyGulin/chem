@@ -109,8 +109,8 @@ const Check = (props: {
       button2 = "buttonPosition2";
       button3 = "buttonPosition3";
       button4 = "buttonPosition4";
-      scoreClass = "score";
-      checkNumberClass = "check-number";
+      scoreClass = "score transition-true";
+      checkNumberClass = "check-number transition-true";
       console.log("state =  ", state);
       console.log("formulaPositionClass =  ", formulaPositionClass);
       break;
