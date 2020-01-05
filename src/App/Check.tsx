@@ -18,7 +18,15 @@ const Check = (props: {
   checksTotal: number;
   clickAnimationDuration: number;
   formula: ChemicalType;
-  handleFinishEvent: (_: boolean | undefined) => void;
+  handleFinishEvent: ({
+    name,
+    type,
+    answer
+  }: {
+    name: string;
+    type: string;
+    answer: string | undefined;
+  }) => void;
   mainAnimationDuration: number;
   score: number;
 }): JSX.Element => {
@@ -33,7 +41,11 @@ const Check = (props: {
       console.log('setState("zero+"); ');
     }, 50);
     const timerFinish = setTimeout(() => {
-      props.handleFinishEvent(undefined);
+      props.handleFinishEvent({
+        name: props.formula.name,
+        type: props.formula.type,
+        answer: undefined
+      });
       console.log("useEffect finish timeout ");
     }, props.mainAnimationDuration);
     return () => {
@@ -56,8 +68,13 @@ const Check = (props: {
             props.clickAnimationDuration + 100
           );
         }
+        const answer = {
+          name: props.formula.name,
+          type: props.formula.type,
+          answer: str
+        };
         setTimeout(() => {
-          props.handleFinishEvent(result);
+          props.handleFinishEvent(answer);
         }, (props.clickAnimationDuration + 100) * (result ? 1 : 2));
       }
     },

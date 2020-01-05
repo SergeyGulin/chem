@@ -40,20 +40,29 @@ const App: React.FC = () => {
   }, []);
 
   const handleFinishEvent = useCallback(
-    result => {
-      console.log("handleFinishEvent fired");
-      let newScore = score;
-      switch (result) {
-        case true:
-          newScore += 2;
-          break;
-        case false:
-          newScore -= 1;
-          break;
-        case undefined:
-          newScore += 0;
-          break;
+    ({
+      name,
+      type,
+      answer
+    }: {
+      name: string;
+      type: string;
+      answer: string | undefined;
+    }) => {
+      console.log("handleFinishEvent name = ", name);
+      console.log("handleFinishEvent type = ", type);
+      console.log("handleFinishEvent answer = ", answer);
+      let newScore;
+      if (answer === undefined) {
+        newScore = score;
+      } else {
+        if (type === answer) {
+          newScore = score + 2;
+        } else {
+          newScore = score - 1;
+        }
       }
+
       setScore(newScore);
       setCheckNumber(
         checkNumber > CHECKS_TOTAL || checkNumber >= resufledFormulas.length
