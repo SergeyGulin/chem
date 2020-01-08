@@ -78,7 +78,7 @@ const App: React.FC = () => {
   return (
     <div>
       {stepNumber === 0 ? (
-        <div key="Старт">
+        <div key="Старт" className="main main1-background-size">
           <button onClick={handleStartClick}>Старт</button>
         </div>
       ) : (

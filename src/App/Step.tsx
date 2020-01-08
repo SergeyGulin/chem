@@ -134,7 +134,7 @@ const Step = (props: {
   }
 
   return (
-    <div className="main">
+    <div className="main main2-background-size">
       <div className={scoreClass}>{props.score}</div>
 
       <div className={checkNumberClass}>

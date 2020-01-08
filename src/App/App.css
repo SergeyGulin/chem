@@ -43,7 +43,14 @@ code {
     color-stop(0.34, rgba(230, 237, 241, 0.1)),
     color-stop(0.67, rgba(230, 237, 241, 0))
   );
-  background-size: 8px 8px;
+}
+
+.main1-background-size {
+  background-size: 17px 17px;
+}
+
+.main2-background-size {
+  background-size: 7px 7px;
 }
 
 /* формула химического вещества и копки с названием классов веществ
