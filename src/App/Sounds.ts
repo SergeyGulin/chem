@@ -1,5 +1,3 @@
-//@ts-ignore
-const AudioContext = window.AudioContext || window.webkitAudioContext;
 const ctx = new AudioContext();
 const audioPaths = [
   process.env.PUBLIC_URL + "/sounds/162485__kastenfrosch__space.mp3", // start
@@ -43,10 +41,9 @@ function getBuffer(url: string, audioCtx: AudioContext) {
 const promises = audioPaths.map((p: string) => getBuffer(p, ctx));
 
 export const sound = (n: number) =>
-  //@ts-ignore
-  promises[n].then((b: AudioBuffer) => {
+  promises[n].then((buffer: any): void => {
     const source = ctx.createBufferSource();
-    source.buffer = b;
+    source.buffer = buffer as any;
     source.connect(ctx.destination);
     source.start();
   });

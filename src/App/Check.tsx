@@ -61,6 +61,11 @@ const Check = (props: {
         setState(str);
         const result = props.formula.type === str;
         const soundNumber = result ? 1 : 2;
+        const answer = {
+          name: props.formula.name,
+          type: props.formula.type,
+          answer: str
+        };
         sound(soundNumber);
         if (!result) {
           setTimeout(
@@ -68,11 +73,6 @@ const Check = (props: {
             props.clickAnimationDuration + 100
           );
         }
-        const answer = {
-          name: props.formula.name,
-          type: props.formula.type,
-          answer: str
-        };
         setTimeout(() => {
           props.handleFinishEvent(answer);
         }, (props.clickAnimationDuration + 100) * (result ? 1 : 2));
