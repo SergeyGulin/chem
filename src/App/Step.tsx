@@ -13,8 +13,8 @@ const buttons = {
   Оксид: "buttonPosition4"
 };
 
-const Check = (props: {
-  checkNumber: number;
+const Step = (props: {
+  stepNumber: number;
   checksTotal: number;
   clickAnimationDuration: number;
   formula: ChemicalType;
@@ -33,7 +33,7 @@ const Check = (props: {
   const [state, setState] = useState<StateType>("zero");
   const [showPrompt, setShowPrompt] = useState(false);
 
-  const { checkNumber } = props;
+  const { stepNumber } = props;
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -92,7 +92,7 @@ const Check = (props: {
   switch (state) {
     case "zero":
       formulaPositionClass = "startPosition";
-      if (checkNumber === 1) {
+      if (stepNumber === 1) {
         button1 = "endPosition";
         button2 = "endPosition";
         button3 = "endPosition";
@@ -138,7 +138,7 @@ const Check = (props: {
       <div className={scoreClass}>{props.score}</div>
 
       <div className={checkNumberClass}>
-        {`${props.checkNumber} / ${props.checksTotal}`}
+        {`${props.stepNumber} / ${props.checksTotal}`}
       </div>
 
       <ChemicalClassButton
@@ -172,4 +172,4 @@ const Check = (props: {
   );
 };
 
-export default Check;
+export default Step;

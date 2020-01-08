@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect } from "react";
 
-import Check from "./Check";
+import Step from "./Step";
 
 import { formulas, reshuffle } from "./ChemicalData";
 
@@ -12,9 +12,11 @@ const CLICK_ANIMATION_DURATION = 1000;
 const CHECKS_TOTAL = 5;
 
 const App: React.FC = () => {
-  const [checkNumber, setCheckNumber] = useState(1);
+  const [{ stepNumber, score }, setStepData] = useState<{
+    stepNumber: number;
+    score: number;
+  }>({ stepNumber: 0, score: 0 });
   const [resufledFormulas, setResufledFormulas] = useState(formulas);
-  const [score, setScore] = useState(0);
 
   useEffect(() => {
     const element = document.documentElement;
@@ -34,8 +36,7 @@ const App: React.FC = () => {
     const newResufledFormulas = reshuffle(formulas);
     setResufledFormulas(newResufledFormulas);
     console.log("newResufledFormulas = ", newResufledFormulas);
-    setCheckNumber(1);
-    setScore(0);
+    setStepData({ stepNumber: 1, score: 0 });
     sound(0);
   }, []);
 
@@ -63,29 +64,30 @@ const App: React.FC = () => {
         }
       }
 
-      setScore(newScore);
-      setCheckNumber(
-        checkNumber > CHECKS_TOTAL || checkNumber >= resufledFormulas.length
-          ? 0
-          : checkNumber + 1
-      );
+      setStepData({
+        stepNumber:
+          stepNumber > CHECKS_TOTAL || stepNumber >= resufledFormulas.length
+            ? 0
+            : stepNumber + 1,
+        score: newScore
+      });
     },
-    [checkNumber, resufledFormulas.length, score]
+    [stepNumber, resufledFormulas.length, score]
   );
 
   return (
     <div>
-      {checkNumber === 0 ? (
+      {stepNumber === 0 ? (
         <div key="Старт">
           <button onClick={handleStartClick}>Старт</button>
         </div>
       ) : (
-        <Check
-          key={checkNumber}
-          checkNumber={checkNumber}
+        <Step
+          key={stepNumber}
+          stepNumber={stepNumber}
           checksTotal={CHECKS_TOTAL}
           clickAnimationDuration={CLICK_ANIMATION_DURATION}
-          formula={resufledFormulas[checkNumber - 1]}
+          formula={resufledFormulas[stepNumber - 1]}
           handleFinishEvent={handleFinishEvent}
           mainAnimationDuration={MAIN_ANIMATION_DURATION}
           score={score}
