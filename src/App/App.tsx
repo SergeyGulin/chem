@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useEffect } from "react";
 
+import { Button } from "./ChemicalClassButton";
 import Step from "./Step";
 
 import { formulas, reshuffle } from "./ChemicalData";
@@ -79,7 +80,21 @@ const App: React.FC = () => {
     <div>
       {stepNumber === 0 ? (
         <div key="Старт" className="main main1-background-size">
-          <button onClick={handleStartClick}>Старт</button>
+          <Button
+            name="Начать новую игру"
+            className="buttonPositionPlay"
+            handleClick={handleStartClick}
+          />
+          <Button
+            name="Лучшие результаты"
+            className="buttonPositionShowRecords"
+            handleClick={handleStartClick}
+          />
+          <Button
+            name="Неправильные ответы"
+            className="buttonPositionShowWrongShots"
+            handleClick={handleStartClick}
+          />
         </div>
       ) : (
         <Step

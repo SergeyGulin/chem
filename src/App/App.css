@@ -148,6 +148,24 @@ code {
   left: calc(100% - var(--formula-width) - 0.8rem);
 }
 
+.buttonPositionPlay {
+  position: absolute;
+  top: calc(25%);
+  left: calc(50% - var(--formula-width) / 2 - 0.3rem);
+}
+
+.buttonPositionShowRecords {
+  position: absolute;
+  top: calc(45%);
+  left: calc(50% - var(--formula-width) / 2 - 0.3rem);
+}
+
+.buttonPositionShowWrongShots {
+  position: absolute;
+  top: calc(65%);
+  left: calc(50% - var(--formula-width) / 2 - 0.3rem);
+}
+
 /* Transition успешного нажатия кнопки
 ******************************************************************/
 .transition-true {

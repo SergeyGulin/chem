@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect } from "react";
 
-import ChemicalClassButton from "./ChemicalClassButton";
+import { ChemicalClassButton } from "./ChemicalClassButton";
 import { sound } from "./Sounds";
 import { ButtonClickedType, ChemicalType } from "./ChemicalData";
 

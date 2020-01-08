@@ -2,19 +2,26 @@ import React from "react";
 
 import { ButtonClickedType } from "./ChemicalData";
 
-const ChemicalClassButton = (props: {
-  name: ButtonClickedType;
+export const Button = (props: {
+  name: string;
   className: string;
-  handleClick: (str: ButtonClickedType) => void;
+  handleClick: () => void;
 }): JSX.Element => (
   <div className={props.className + " scale1-1"}>
-    <button
-      className="buttonView"
-      onClick={() => props.handleClick(props.name)}
-    >
+    <button className="buttonView" onClick={props.handleClick}>
       {props.name}
     </button>
   </div>
 );
 
-export default ChemicalClassButton;
+export const ChemicalClassButton = (props: {
+  name: ButtonClickedType;
+  className: string;
+  handleClick: (str: ButtonClickedType) => void;
+}): JSX.Element => (
+  <Button
+    name={props.name}
+    className={props.className}
+    handleClick={() => props.handleClick(props.name)}
+  />
+);
