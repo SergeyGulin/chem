@@ -1,3 +1,5 @@
+//@ts-ignore
+const AudioContext = window.AudioContext || window.webkitAudioContext;
 const ctx = new AudioContext();
 const audioPaths = [
   process.env.PUBLIC_URL + "/sounds/162485__kastenfrosch__space.mp3", // start

@@ -31,7 +31,7 @@ const Step = (props: {
   score: number;
 }): JSX.Element => {
   const [state, setState] = useState<StateType>("zero");
-  const [showPrompt, setShowPrompt] = useState(false);
+  const [showHint, setShowHint] = useState(false);
 
   const { stepNumber } = props;
 
@@ -163,10 +163,10 @@ const Step = (props: {
       />
 
       <div className={formulaPositionClass}>
-        <button className="formulaView" onClick={() => setShowPrompt(true)}>
-          {props.formula.formula}
+        <button className="formulaView" onClick={() => setShowHint(true)}>
+          <div>{props.formula.formula}</div>
+          {showHint && <div className="formula-hint">{props.formula.text}</div>}
         </button>
-        {showPrompt && <div>{props.formula.text}</div>}
       </div>
     </div>
   );
