@@ -15,6 +15,8 @@ code {
 :root {
   --formula-width: 8rem;
 
+  --dark-red-color: maroon;
+
   --easing-function-false: cubic-bezier(0.6, -0.28, 0.735, 0.045);
   --easing-function-true: ease;
 }
@@ -83,7 +85,7 @@ code {
 }
 
 .buttonView {
-  color: maroon;
+  color: var(--dark-red-color);
   cursor: pointer;
 }
 
@@ -170,7 +172,7 @@ code {
   position: absolute;
   top: 0.2rem;
   left: calc(100% - var(--formula-width) - 0.2rem);
-  color: maroon;
+  color: var(--dark-red-color);
   font-size: 3rem;
   width: var(--formula-width);
   text-align: center;
@@ -192,4 +194,5 @@ code {
 ******************************************************************/
 .formula-hint {
   font-size: 0.8rem;
+  color: var(--dark-red-color);
 }
