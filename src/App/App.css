@@ -72,10 +72,12 @@ code {
 
 .formulaView {
   color: black;
+  cursor: help;
 }
 
 .buttonView {
   color: maroon;
+  cursor: pointer;
 }
 
 /* Начальная позиция падения
