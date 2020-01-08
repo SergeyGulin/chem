@@ -13,7 +13,7 @@ code {
 }
 
 :root {
-  --formula-width: 6rem;
+  --formula-width: 8rem;
 
   --easing-function-false: cubic-bezier(0.6, -0.28, 0.735, 0.045);
   --easing-function-true: ease;
@@ -79,10 +79,12 @@ code {
 
 .formulaView {
   color: black;
+  cursor: help;
 }
 
 .buttonView {
   color: maroon;
+  cursor: pointer;
 }
 
 /* Начальная позиция падения
@@ -184,4 +186,10 @@ code {
   font-size: 3rem;
   width: var(--formula-width);
   text-align: center;
+}
+
+/* Formula hint
+******************************************************************/
+.formula-hint {
+  font-size: 0.8rem;
 }
