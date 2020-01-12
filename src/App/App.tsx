@@ -89,8 +89,8 @@ const App: React.FC = () => {
             name="Начать новую игру"
             className={
               animationStep
-                ? "startPosition transition-true"
-                : "buttonPositionPlay"
+                ? "buttonPositionPlay transition-true"
+                : "startPosition"
             }
             handleClick={handleStartClick}
           />
@@ -98,8 +98,8 @@ const App: React.FC = () => {
             name="Лучшие результаты"
             className={
               animationStep
-                ? "startPosition transition-true"
-                : "buttonPositionShowRecords"
+                ? "buttonPositionShowRecords transition-true"
+                : "startPosition"
             }
             handleClick={handleStartClick}
           />
@@ -107,8 +107,8 @@ const App: React.FC = () => {
             name="Неправильные ответы"
             className={
               animationStep
-                ? "startPosition transition-true"
-                : "buttonPositionShowWrongShots"
+                ? "buttonPositionShowWrongShots transition-true"
+                : "startPosition"
             }
             handleClick={handleStartClick}
           />
