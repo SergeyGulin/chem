@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect } from "react";
 
-import { Button } from "./ChemicalClassButton";
+import { Button } from "./Button";
 import Step from "./Step";
 
 import { formulas, reshuffle } from "./ChemicalData";

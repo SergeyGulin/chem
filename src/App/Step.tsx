@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect } from "react";
 
-import { ChemicalClassButton } from "./ChemicalClassButton";
+import { ClassificationButton } from "./Button";
 import { sound } from "./Sounds";
 import { ButtonClickedType, ChemicalType } from "./ChemicalData";
 
@@ -141,22 +141,22 @@ const Step = (props: {
         {`${props.stepNumber} / ${props.checksTotal}`}
       </div>
 
-      <ChemicalClassButton
+      <ClassificationButton
         name="Кислота"
         className={button1}
         handleClick={handleClick}
       />
-      <ChemicalClassButton
+      <ClassificationButton
         name="Соль"
         className={button2}
         handleClick={handleClick}
       />
-      <ChemicalClassButton
+      <ClassificationButton
         name="Основание"
         className={button3}
         handleClick={handleClick}
       />
-      <ChemicalClassButton
+      <ClassificationButton
         name="Оксид"
         className={button4}
         handleClick={handleClick}

@@ -14,7 +14,7 @@ export const Button = (props: {
   </div>
 );
 
-export const ChemicalClassButton = (props: {
+export const ClassificationButton = (props: {
   name: ButtonClickedType;
   className: string;
   handleClick: (str: ButtonClickedType) => void;
