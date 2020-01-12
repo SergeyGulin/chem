@@ -19,6 +19,8 @@ const App: React.FC = () => {
   }>({ stepNumber: 0, score: 0 });
   const [resufledFormulas, setResufledFormulas] = useState(formulas);
 
+  const [animationStep, setAnimationStep] = useState(false);
+
   useEffect(() => {
     const element = document.documentElement;
     element.style.setProperty(
@@ -29,7 +31,10 @@ const App: React.FC = () => {
       "--click-animation-duration",
       (CLICK_ANIMATION_DURATION / 1000).toFixed(2) + "s"
     );
-    return () => {};
+    const timer = setTimeout(() => setAnimationStep(true), 50);
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
 
   const handleStartClick = useCallback(() => {
@@ -82,17 +87,29 @@ const App: React.FC = () => {
         <div key="Старт" className="main main1-background-size">
           <Button
             name="Начать новую игру"
-            className="buttonPositionPlay"
+            className={
+              animationStep
+                ? "startPosition transition-true"
+                : "buttonPositionPlay"
+            }
             handleClick={handleStartClick}
           />
           <Button
             name="Лучшие результаты"
-            className="buttonPositionShowRecords"
+            className={
+              animationStep
+                ? "startPosition transition-true"
+                : "buttonPositionShowRecords"
+            }
             handleClick={handleStartClick}
           />
           <Button
             name="Неправильные ответы"
-            className="buttonPositionShowWrongShots"
+            className={
+              animationStep
+                ? "startPosition transition-true"
+                : "buttonPositionShowWrongShots"
+            }
             handleClick={handleStartClick}
           />
         </div>
