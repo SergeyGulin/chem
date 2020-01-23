@@ -6,17 +6,23 @@ import Step from "./Step";
 import { formulas, reshuffle } from "./ChemicalData";
 
 import { sound } from "./Sounds";
+import BestResultsScreen from "./BestResultsScreen";
 
 const MAIN_ANIMATION_DURATION = 10000;
 const CLICK_ANIMATION_DURATION = 1000;
 
 const CHECKS_TOTAL = 5;
 
+const START_SCREEN_STATE = 0;
+const FINISH_SCREEN_STATE = -1;
+const BEST_RESULTS_SCREEN_STATE = -2;
+const ERRORS_SCREEN_STATE = -3;
+
 const App: React.FC = () => {
   const [{ stepNumber, score }, setStepData] = useState<{
     stepNumber: number;
     score: number;
-  }>({ stepNumber: 0, score: 0 });
+  }>({ stepNumber: FINISH_SCREEN_STATE, score: 5 });
   const [resufledFormulas, setResufledFormulas] = useState(formulas);
 
   const [animationStep, setAnimationStep] = useState(false);
@@ -73,7 +79,7 @@ const App: React.FC = () => {
       setStepData({
         stepNumber:
           stepNumber > CHECKS_TOTAL || stepNumber >= resufledFormulas.length
-            ? 0
+            ? FINISH_SCREEN_STATE
             : stepNumber + 1,
         score: newScore
       });
@@ -81,12 +87,12 @@ const App: React.FC = () => {
     [stepNumber, resufledFormulas.length, score]
   );
 
-  return (
-    <div>
-      {stepNumber === 0 ? (
+  switch (stepNumber) {
+    case START_SCREEN_STATE:
+      return (
         <div key="Старт" className="main main1-background-size">
           <Button
-            name="Начать новую игру"
+            name={`Начать игру (8${"\u00A0"}класс)`}
             className={
               animationStep
                 ? "buttonPositionPlay transition-true"
@@ -101,7 +107,9 @@ const App: React.FC = () => {
                 ? "buttonPositionShowRecords transition-true"
                 : "startPosition"
             }
-            handleClick={handleStartClick}
+            handleClick={() =>
+              setStepData({ stepNumber: BEST_RESULTS_SCREEN_STATE, score: 0 })
+            }
           />
           <Button
             name="Неправильные ответы"
@@ -110,10 +118,46 @@ const App: React.FC = () => {
                 ? "buttonPositionShowWrongShots transition-true"
                 : "startPosition"
             }
-            handleClick={handleStartClick}
+            handleClick={() =>
+              setStepData({ stepNumber: ERRORS_SCREEN_STATE, score: 0 })
+            }
           />
         </div>
-      ) : (
+      );
+
+    case FINISH_SCREEN_STATE:
+      return (
+        <div key="Старт" className="main main1-background-size">
+          <div
+            className={
+              animationStep
+                ? "buttonPositionPlay result transition-true"
+                : "startPosition result"
+            }
+          >{`Итого: ${score}`}</div>
+
+          <Button
+            name={`Возврат на главный экран`}
+            className={
+              animationStep
+                ? "buttonPositionShowRecords  transition-true"
+                : "startPosition"
+            }
+            handleClick={() =>
+              setStepData({ stepNumber: START_SCREEN_STATE, score: 0 })
+            }
+          />
+        </div>
+      );
+
+    case BEST_RESULTS_SCREEN_STATE:
+      return <BestResultsScreen />;
+
+    case ERRORS_SCREEN_STATE:
+      return <BestResultsScreen />;
+
+    default:
+      return (
         <Step
           key={stepNumber}
           stepNumber={stepNumber}
@@ -124,9 +168,8 @@ const App: React.FC = () => {
           mainAnimationDuration={MAIN_ANIMATION_DURATION}
           score={score}
         />
-      )}
-    </div>
-  );
+      );
+  }
 };
 
 export default App;

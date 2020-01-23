@@ -214,3 +214,11 @@ code {
   font-size: 0.8rem;
   color: var(--dark-red-color);
 }
+
+.result {
+  color: black;
+  font-size: 3rem;
+  font-weight: 600;
+  width: var(--formula-width);
+  text-align: center;
+}
