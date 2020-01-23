@@ -7,6 +7,7 @@ import { formulas, reshuffle } from "./ChemicalData";
 
 import { sound } from "./Sounds";
 import BestResultsScreen from "./BestResultsScreen";
+import ErrosScreen from "./ErrosScreen";
 
 const MAIN_ANIMATION_DURATION = 10000;
 const CLICK_ANIMATION_DURATION = 1000;
@@ -151,10 +152,26 @@ const App: React.FC = () => {
       );
 
     case BEST_RESULTS_SCREEN_STATE:
-      return <BestResultsScreen />;
+      return (
+        <div
+          onClick={() =>
+            setStepData({ stepNumber: START_SCREEN_STATE, score: 0 })
+          }
+        >
+          <BestResultsScreen />
+        </div>
+      );
 
     case ERRORS_SCREEN_STATE:
-      return <BestResultsScreen />;
+      return (
+        <div
+          onClick={() =>
+            setStepData({ stepNumber: START_SCREEN_STATE, score: 0 })
+          }
+        >
+          <ErrosScreen />
+        </div>
+      );
 
     default:
       return (
