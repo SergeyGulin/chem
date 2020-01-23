@@ -66,24 +66,32 @@ const App: React.FC = () => {
       console.log("handleFinishEvent name = ", name);
       console.log("handleFinishEvent type = ", type);
       console.log("handleFinishEvent answer = ", answer);
+      const keyStep = `${name}/${answer}`;
+      const count = parseInt(localStorage.getItem(keyStep) || "0", 10);
+
       let newScore;
       if (answer === undefined) {
         newScore = score;
+        localStorage.setItem(keyStep, `${count + 1}`);
       } else {
         if (type === answer) {
           newScore = score + 2;
         } else {
           newScore = score - 1;
+          localStorage.setItem(keyStep, `${count + 1}`);
         }
       }
 
+      const thisWasTheLastStep =
+        stepNumber > CHECKS_TOTAL || stepNumber >= resufledFormulas.length;
+
       setStepData({
-        stepNumber:
-          stepNumber > CHECKS_TOTAL || stepNumber >= resufledFormulas.length
-            ? FINISH_SCREEN_STATE
-            : stepNumber + 1,
+        stepNumber: thisWasTheLastStep ? FINISH_SCREEN_STATE : stepNumber + 1,
         score: newScore
       });
+      if (thisWasTheLastStep) {
+        localStorage.setItem(Date.now().toString(), newScore.toString());
+      }
     },
     [stepNumber, resufledFormulas.length, score]
   );
