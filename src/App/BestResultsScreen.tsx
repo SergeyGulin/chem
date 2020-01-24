@@ -1,17 +1,16 @@
 import React from "react";
 
-export const GRADE_CLASS_ARRAY = [8, 9, 10];
+import { GRADE_CLASS_ARRAY } from "./ChemicalData";
 
 export type scoreType = {
   date: number;
   score: number;
 };
-export const getKey = (gradeClass: number) => `${gradeClass} класс`;
 export const getBestResults = (key: string): scoreType[] =>
   JSON.parse(localStorage.getItem(key) || "[]");
 
 export const BestResultsScreen = (): JSX.Element => {
-  const records = getBestResults(getKey(GRADE_CLASS_ARRAY[0]));
+  const records = getBestResults(GRADE_CLASS_ARRAY[0]);
   return (
     <div className="main main1-background-size">
       <div>BestResultsScreen</div>

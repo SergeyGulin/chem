@@ -6,7 +6,10 @@ import Step from "./Step";
 import { formulas, reshuffle } from "./ChemicalData";
 
 import { sound } from "./Sounds";
-import { BestResultsScreen, getBestResults, getKey } from "./BestResultsScreen";
+import { BestResultsScreen, getBestResults } from "./BestResultsScreen";
+
+import { GRADE_CLASS_ARRAY } from "./ChemicalData";
+
 import ErrosScreen from "./ErrosScreen";
 
 const MAIN_ANIMATION_DURATION = 10000;
@@ -24,9 +27,15 @@ const App: React.FC = () => {
   const [{ stepNumber, score, gradeClass }, setStepData] = useState<{
     stepNumber: number;
     score: number;
-    gradeClass: number;
-  }>({ stepNumber: FINISH_SCREEN_STATE, score: 5, gradeClass: 8 });
-  const [resufledFormulas, setResufledFormulas] = useState(formulas);
+    gradeClass: string;
+  }>({
+    stepNumber: START_SCREEN_STATE,
+    score: 0,
+    gradeClass: GRADE_CLASS_ARRAY[0]
+  });
+  const [resufledFormulas, setResufledFormulas] = useState(
+    formulas[gradeClass]
+  );
 
   const [animationStep, setAnimationStep] = useState(false);
 
@@ -48,7 +57,7 @@ const App: React.FC = () => {
 
   const handleStartClick = useCallback(() => {
     console.log("Нажата кнопка старт");
-    const newResufledFormulas = reshuffle(formulas);
+    const newResufledFormulas = reshuffle(formulas[gradeClass]);
     setResufledFormulas(newResufledFormulas);
     console.log("newResufledFormulas = ", newResufledFormulas);
     setStepData({ stepNumber: 1, score: 0, gradeClass });
@@ -93,15 +102,14 @@ const App: React.FC = () => {
         gradeClass
       });
       if (thisWasTheLastStep) {
-        const key = getKey(gradeClass);
-        let records = getBestResults(key);
+        let records = getBestResults(gradeClass);
         records.push({
           date: Date.now(),
           score: newScore
         });
         records.sort((a, b) => b.score - a.score);
         records = records.slice(0, RECORDS_TOTAL);
-        localStorage.setItem(key, JSON.stringify(records));
+        localStorage.setItem(gradeClass, JSON.stringify(records));
       }
     },
     [stepNumber, resufledFormulas.length, gradeClass, score]
@@ -183,8 +191,6 @@ const App: React.FC = () => {
       );
 
     case BEST_RESULTS_SCREEN_STATE: {
-      const key = getKey(gradeClass);
-      const records = getBestResults(key);
       return (
         <div
           onClick={() =>
