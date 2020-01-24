@@ -13,6 +13,7 @@ const MAIN_ANIMATION_DURATION = 10000;
 const CLICK_ANIMATION_DURATION = 1000;
 
 const CHECKS_TOTAL = 5;
+const RECORDS_TOTAL = 5;
 
 const START_SCREEN_STATE = 0;
 const FINISH_SCREEN_STATE = -1;
@@ -92,7 +93,21 @@ const App: React.FC = () => {
         gradeClass
       });
       if (thisWasTheLastStep) {
-        localStorage.setItem(Date.now().toString(), newScore.toString());
+        type scoreType = {
+          date: number;
+          score: number;
+        };
+        const key = `${gradeClass} класс`;
+        let records: scoreType[] = JSON.parse(
+          localStorage.getItem(key) || "[]"
+        );
+        records.push({
+          date: Date.now(),
+          score: newScore
+        });
+        records.sort((a, b) => b.score - a.score);
+        records = records.slice(0, RECORDS_TOTAL);
+        localStorage.setItem(key, JSON.stringify(records));
       }
     },
     [stepNumber, resufledFormulas.length, gradeClass, score]
