@@ -20,10 +20,11 @@ const BEST_RESULTS_SCREEN_STATE = -2;
 const ERRORS_SCREEN_STATE = -3;
 
 const App: React.FC = () => {
-  const [{ stepNumber, score }, setStepData] = useState<{
+  const [{ stepNumber, score, gradeClass }, setStepData] = useState<{
     stepNumber: number;
     score: number;
-  }>({ stepNumber: FINISH_SCREEN_STATE, score: 5 });
+    gradeClass: number;
+  }>({ stepNumber: FINISH_SCREEN_STATE, score: 5, gradeClass: 8 });
   const [resufledFormulas, setResufledFormulas] = useState(formulas);
 
   const [animationStep, setAnimationStep] = useState(false);
@@ -49,9 +50,9 @@ const App: React.FC = () => {
     const newResufledFormulas = reshuffle(formulas);
     setResufledFormulas(newResufledFormulas);
     console.log("newResufledFormulas = ", newResufledFormulas);
-    setStepData({ stepNumber: 1, score: 0 });
+    setStepData({ stepNumber: 1, score: 0, gradeClass });
     sound(0);
-  }, []);
+  }, [gradeClass]);
 
   const handleFinishEvent = useCallback(
     ({
@@ -87,13 +88,14 @@ const App: React.FC = () => {
 
       setStepData({
         stepNumber: thisWasTheLastStep ? FINISH_SCREEN_STATE : stepNumber + 1,
-        score: newScore
+        score: newScore,
+        gradeClass
       });
       if (thisWasTheLastStep) {
         localStorage.setItem(Date.now().toString(), newScore.toString());
       }
     },
-    [stepNumber, resufledFormulas.length, score]
+    [stepNumber, resufledFormulas.length, gradeClass, score]
   );
 
   switch (stepNumber) {
@@ -117,7 +119,11 @@ const App: React.FC = () => {
                 : "startPosition"
             }
             handleClick={() =>
-              setStepData({ stepNumber: BEST_RESULTS_SCREEN_STATE, score: 0 })
+              setStepData({
+                stepNumber: BEST_RESULTS_SCREEN_STATE,
+                score: 0,
+                gradeClass
+              })
             }
           />
           <Button
@@ -128,7 +134,11 @@ const App: React.FC = () => {
                 : "startPosition"
             }
             handleClick={() =>
-              setStepData({ stepNumber: ERRORS_SCREEN_STATE, score: 0 })
+              setStepData({
+                stepNumber: ERRORS_SCREEN_STATE,
+                score: 0,
+                gradeClass
+              })
             }
           />
         </div>
@@ -153,7 +163,11 @@ const App: React.FC = () => {
                 : "startPosition"
             }
             handleClick={() =>
-              setStepData({ stepNumber: START_SCREEN_STATE, score: 0 })
+              setStepData({
+                stepNumber: START_SCREEN_STATE,
+                score: 0,
+                gradeClass
+              })
             }
           />
         </div>
@@ -163,7 +177,11 @@ const App: React.FC = () => {
       return (
         <div
           onClick={() =>
-            setStepData({ stepNumber: START_SCREEN_STATE, score: 0 })
+            setStepData({
+              stepNumber: START_SCREEN_STATE,
+              score: 0,
+              gradeClass
+            })
           }
         >
           <BestResultsScreen />
@@ -174,7 +192,11 @@ const App: React.FC = () => {
       return (
         <div
           onClick={() =>
-            setStepData({ stepNumber: START_SCREEN_STATE, score: 0 })
+            setStepData({
+              stepNumber: START_SCREEN_STATE,
+              score: 0,
+              gradeClass
+            })
           }
         >
           <ErrosScreen />
