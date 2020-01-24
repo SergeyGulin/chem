@@ -55,14 +55,14 @@ const App: React.FC = () => {
     };
   }, []);
 
-  const handleStartClick = useCallback(() => {
+  const handleStartClick = useCallback((grade: string) => {
     console.log("Нажата кнопка старт");
-    const newResufledFormulas = reshuffle(formulas[gradeClass]);
+    const newResufledFormulas = reshuffle(formulas[grade]);
     setResufledFormulas(newResufledFormulas);
     console.log("newResufledFormulas = ", newResufledFormulas);
-    setStepData({ stepNumber: 1, score: 0, gradeClass });
+    setStepData({ stepNumber: 1, score: 0, gradeClass: grade });
     sound(0);
-  }, [gradeClass]);
+  }, []);
 
   const handleFinishEvent = useCallback(
     ({
@@ -119,15 +119,19 @@ const App: React.FC = () => {
     case START_SCREEN_STATE:
       return (
         <div className="main main1-background-size">
-          <Button
-            name={`Начать игру (8${"\u00A0"}класс)`}
-            className={
-              animationStep
-                ? "buttonPositionPlay transition-true"
-                : "startPosition"
-            }
-            handleClick={handleStartClick}
-          />
+          {GRADE_CLASS_ARRAY.map((grade, index) => (
+            <Button
+              key={grade}
+              name={`Начать игру (${grade})`}
+              className={
+                animationStep
+                  ? `buttonPositionPlay${index + 1} transition-true`
+                  : "startPosition"
+              }
+              handleClick={() => handleStartClick(grade)}
+            />
+          ))}
+
           <Button
             name="Лучшие результаты"
             className={

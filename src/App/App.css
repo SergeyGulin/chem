@@ -152,21 +152,32 @@ ul {
   left: calc(100% - var(--formula-width) - 0.8rem);
 }
 
-.buttonPositionPlay {
+.buttonPositionPlay1,
+.buttonPositionPlay2,
+.buttonPositionPlay3 {
   position: absolute;
-  top: calc(25%);
   left: calc(50% - var(--formula-width) / 2 - 0.3rem);
+}
+
+.buttonPositionPlay1 {
+  top: calc(10%);
+}
+.buttonPositionPlay2 {
+  top: calc(25%);
+}
+.buttonPositionPlay3 {
+  top: calc(40%);
 }
 
 .buttonPositionShowRecords {
   position: absolute;
-  top: calc(45%);
+  top: calc(55%);
   left: calc(50% - var(--formula-width) / 2 - 0.3rem);
 }
 
 .buttonPositionShowWrongShots {
   position: absolute;
-  top: calc(65%);
+  top: calc(70%);
   left: calc(50% - var(--formula-width) / 2 - 0.3rem);
 }
 
