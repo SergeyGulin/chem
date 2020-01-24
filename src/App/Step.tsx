@@ -27,6 +27,7 @@ const Step = (props: {
     type: string;
     answer: string | undefined;
   }) => void;
+  handleStopEvent: () => void;
   mainAnimationDuration: number;
   score: number;
 }): JSX.Element => {
@@ -137,7 +138,7 @@ const Step = (props: {
     <div className="main main2-background-size">
       <div className={scoreClass}>{props.score}</div>
 
-      <div className={checkNumberClass}>
+      <div className={checkNumberClass} onClick={props.handleStopEvent}>
         {`${props.stepNumber} / ${props.checksTotal}`}
       </div>
 

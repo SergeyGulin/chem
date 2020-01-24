@@ -27,6 +27,10 @@ code {
   }
 } */
 
+ul {
+  list-style: none;
+}
+
 .main {
   position: absolute;
   top: 0;
@@ -221,4 +225,25 @@ code {
   font-weight: 600;
   width: var(--formula-width);
   text-align: center;
+}
+
+.record-score {
+  color: var(--dark-red-color);
+  font-size: 1rem;
+  font-weight: 600;
+  width: 2rem;
+  padding: 0.2rem 1rem 0.2rem 0;
+  text-align: right;
+}
+
+.record-date {
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+.display-flex {
+  display: flex;
+  justify-content: right;
+  align-items: center;
 }

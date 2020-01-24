@@ -6,7 +6,7 @@ import Step from "./Step";
 import { formulas, reshuffle } from "./ChemicalData";
 
 import { sound } from "./Sounds";
-import BestResultsScreen from "./BestResultsScreen";
+import { BestResultsScreen, getBestResults, getKey } from "./BestResultsScreen";
 import ErrosScreen from "./ErrosScreen";
 
 const MAIN_ANIMATION_DURATION = 10000;
@@ -93,14 +93,8 @@ const App: React.FC = () => {
         gradeClass
       });
       if (thisWasTheLastStep) {
-        type scoreType = {
-          date: number;
-          score: number;
-        };
-        const key = `${gradeClass} класс`;
-        let records: scoreType[] = JSON.parse(
-          localStorage.getItem(key) || "[]"
-        );
+        const key = getKey(gradeClass);
+        let records = getBestResults(key);
         records.push({
           date: Date.now(),
           score: newScore
@@ -116,7 +110,7 @@ const App: React.FC = () => {
   switch (stepNumber) {
     case START_SCREEN_STATE:
       return (
-        <div key="Старт" className="main main1-background-size">
+        <div className="main main1-background-size">
           <Button
             name={`Начать игру (8${"\u00A0"}класс)`}
             className={
@@ -161,7 +155,7 @@ const App: React.FC = () => {
 
     case FINISH_SCREEN_STATE:
       return (
-        <div key="Старт" className="main main1-background-size">
+        <div className="main main1-background-size">
           <div
             className={
               animationStep
@@ -188,7 +182,9 @@ const App: React.FC = () => {
         </div>
       );
 
-    case BEST_RESULTS_SCREEN_STATE:
+    case BEST_RESULTS_SCREEN_STATE: {
+      const key = getKey(gradeClass);
+      const records = getBestResults(key);
       return (
         <div
           onClick={() =>
@@ -202,6 +198,7 @@ const App: React.FC = () => {
           <BestResultsScreen />
         </div>
       );
+    }
 
     case ERRORS_SCREEN_STATE:
       return (
@@ -227,6 +224,13 @@ const App: React.FC = () => {
           clickAnimationDuration={CLICK_ANIMATION_DURATION}
           formula={resufledFormulas[stepNumber - 1]}
           handleFinishEvent={handleFinishEvent}
+          handleStopEvent={() =>
+            setStepData({
+              stepNumber: START_SCREEN_STATE,
+              score: 0,
+              gradeClass
+            })
+          }
           mainAnimationDuration={MAIN_ANIMATION_DURATION}
           score={score}
         />
