@@ -17,7 +17,7 @@ import ErrosScreen from "./ErrosScreen";
 const MAIN_ANIMATION_DURATION = 10000;
 const CLICK_ANIMATION_DURATION = 1000;
 
-const CHECKS_TOTAL = 20;
+const CHECKS_TOTAL = 3;
 const RECORDS_TOTAL = 5;
 
 const START_SCREEN_STATE = 0;
@@ -96,7 +96,7 @@ const App: React.FC = () => {
       }
 
       const thisWasTheLastStep =
-        stepNumber > CHECKS_TOTAL || stepNumber >= resufledFormulas.length;
+        stepNumber >= CHECKS_TOTAL || stepNumber >= resufledFormulas.length;
 
       setStepData({
         stepNumber: thisWasTheLastStep ? FINISH_SCREEN_STATE : stepNumber + 1,
