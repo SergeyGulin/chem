@@ -1,5 +1,4 @@
 import React, { useState, useCallback, useEffect } from "react";
-
 import { Button } from "./Button";
 import Step from "./Step";
 
@@ -12,10 +11,13 @@ import { GRADE_CLASS_ARRAY } from "./ChemicalData";
 
 import ErrosScreen from "./ErrosScreen";
 
+// import { convert } from "./util";
+// convert();
+
 const MAIN_ANIMATION_DURATION = 10000;
 const CLICK_ANIMATION_DURATION = 1000;
 
-const CHECKS_TOTAL = 5;
+const CHECKS_TOTAL = 20;
 const RECORDS_TOTAL = 5;
 
 const START_SCREEN_STATE = 0;
