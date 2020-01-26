@@ -16,7 +16,7 @@ export function reshuffle<T>(arr: T[]): T[] {
 }
 
 export const formulas: { [key: string]: ChemicalType[] } = {
-  "8_класс": [
+  "": [
     {
       name: "азотная кислота",
       text: "",
@@ -677,31 +677,31 @@ export const formulas: { [key: string]: ChemicalType[] } = {
         </div>
       )
     }
-  ],
-  "9_класс": [
-    {
-      name: "Cульфит натрия",
-      text: "Cульфит натрия",
-      type: "Соль",
-      formula: (
-        <div>
-          Na<sub>2</sub>SO<sub>3</sub>
-        </div>
-      )
-    }
-  ],
-  "10_класс": [
-    {
-      name: "Вода (оксид водорода)",
-      text: "Вода",
-      type: "Оксид",
-      formula: (
-        <div>
-          H<sub>2</sub>O
-        </div>
-      )
-    }
   ]
+  // "9_класс": [
+  //   {
+  //     name: "Cульфит натрия",
+  //     text: "Cульфит натрия",
+  //     type: "Соль",
+  //     formula: (
+  //       <div>
+  //         Na<sub>2</sub>SO<sub>3</sub>
+  //       </div>
+  //     )
+  //   }
+  // ],
+  // "10_класс": [
+  //   {
+  //     name: "Вода (оксид водорода)",
+  //     text: "Вода",
+  //     type: "Оксид",
+  //     formula: (
+  //       <div>
+  //         H<sub>2</sub>O
+  //       </div>
+  //     )
+  //   }
+  // ]
 };
 
 export const GRADE_CLASS_ARRAY = Object.keys(formulas);

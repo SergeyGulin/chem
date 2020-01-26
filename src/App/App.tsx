@@ -58,10 +58,10 @@ const App: React.FC = () => {
   }, []);
 
   const handleStartClick = useCallback((grade: string) => {
-    console.log("Нажата кнопка старт");
+    // console.log("Нажата кнопка старт");
     const newResufledFormulas = reshuffle(formulas[grade]);
     setResufledFormulas(newResufledFormulas);
-    console.log("newResufledFormulas = ", newResufledFormulas);
+    // console.log("newResufledFormulas = ", newResufledFormulas);
     setStepData({ stepNumber: 1, score: 0, gradeClass: grade });
     sound(0);
   }, []);
@@ -124,7 +124,7 @@ const App: React.FC = () => {
           {GRADE_CLASS_ARRAY.map((grade, index) => (
             <Button
               key={grade}
-              name={`Начать игру (${grade})`}
+              name={`Начать игру ${grade}`}
               className={
                 animationStep
                   ? `buttonPositionPlay${index + 1} transition-true`
