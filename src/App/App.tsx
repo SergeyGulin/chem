@@ -11,13 +11,13 @@ import { GRADE_CLASS_ARRAY } from "./ChemicalData";
 
 import ErrosScreen from "./ErrosScreen";
 
-// import { convert } from "./util";
-// convert();
+import { convert } from "./util";
+convert();
 
 const MAIN_ANIMATION_DURATION = 10000;
 const CLICK_ANIMATION_DURATION = 1000;
 
-const CHECKS_TOTAL = 3;
+const CHECKS_TOTAL = 10;
 const RECORDS_TOTAL = 5;
 
 const START_SCREEN_STATE = 0;
