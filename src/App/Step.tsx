@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
 
 import { ClassificationButton } from "./Button";
-import { sound } from "./Sounds";
+import { sound, soundsType } from "./Sounds";
 import { ButtonClickedType, ChemicalType } from "./ChemicalData";
 
 type StateType = "zero" | "zero+" | "zero+false" | ButtonClickedType;
@@ -61,13 +61,12 @@ const Step = (props: {
       if (state === "zero+") {
         setState(str);
         const result = props.formula.type === str;
-        const soundNumber = result ? 1 : 2;
         const answer = {
           name: props.formula.name,
           type: props.formula.type,
           answer: str
         };
-        sound(soundNumber);
+        sound(result ? soundsType.TRUE_SHOT : soundsType.FALSE_SHOT);
         if (!result) {
           setTimeout(
             () => setState("zero+false"),

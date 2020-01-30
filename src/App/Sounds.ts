@@ -1,11 +1,22 @@
 const AudioContext =
   (window as any).AudioContext || (window as any).webkitAudioContext;
 const ctx = new AudioContext();
-const audioPaths = [
-  process.env.PUBLIC_URL + "/sounds/162485__kastenfrosch__space.mp3", // start
-  process.env.PUBLIC_URL + "/sounds/135510__chriddof__space-bloop.wav", // true shot
-  process.env.PUBLIC_URL + "/sounds/432761__xpoki__lazershot.wav" // false shot
-];
+
+export enum soundsType {
+  START = "START",
+  TRUE_SHOT = "TRUE_SHOT",
+  FALSE_SHOT = "FALSE_SHOT",
+  BEST_RESULTS = "BEST_RESULTS"
+}
+
+const audioPaths: { [key in soundsType]: string } = {
+  START: process.env.PUBLIC_URL + "/sounds/162485__kastenfrosch__space.mp3",
+  TRUE_SHOT:
+    process.env.PUBLIC_URL + "/sounds/135510__chriddof__space-bloop.wav",
+  FALSE_SHOT: process.env.PUBLIC_URL + "/sounds/432761__xpoki__lazershot.wav",
+  BEST_RESULTS:
+    process.env.PUBLIC_URL + "/sounds/477552__abacagi__explosion-sfx.mp3"
+};
 
 // https://stackoverflow.com/questions/47204048/play-multiple-audio-files-on-safari-at-once
 // utility function to load an audio file and resolve it as a decoded audio buffer
@@ -39,13 +50,17 @@ function getBuffer(url: string, audioCtx: AudioContext) {
     xhr.send();
   });
 }
+const promises = Object.create(null);
 
-const promises = audioPaths.map((p: string) => getBuffer(p, ctx));
+Object.entries(audioPaths).forEach(([key, path]) => {
+  promises[key] = getBuffer(path, ctx);
+});
 
-export const sound = (n: number) =>
-  promises[n].then((buffer: any): void => {
+export const sound = (key: soundsType) => {
+  promises[key].then((buffer: any): void => {
     const source = ctx.createBufferSource();
     source.buffer = buffer as any;
     source.connect(ctx.destination);
     source.start();
   });
+};

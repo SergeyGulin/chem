@@ -58,3 +58,23 @@ export const convert = () => {
   console.log("result = ", result);
   console.log("===", JSON.stringify(result));
 };
+
+// function kv1(a: number) {
+//   return a * a;
+// }
+
+// const kv2 = function(a: number) {
+//   return a * a;
+// };
+
+// const kv3 = (a: number) => a * a;
+// const kv4 = (a: number) => a * a;
+// const kv5 = (a: number) => {
+//   return a * a;
+// };
+
+// console.log("kv1(5) = ", kv1(5)); //  kv1(5) = 25
+// console.log("kv2(5) = ", kv2(5)); //  kv1(5) = 25
+// console.log("kv3(5) = ", kv3(5)); //  kv1(5) = 25
+// console.log("kv4(5) = ", kv4(5)); //  kv1(5) = 25
+// console.log("kv5(5) = ", kv5(5)); //  kv1(5) = 25

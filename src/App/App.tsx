@@ -4,7 +4,7 @@ import Step from "./Step";
 
 import { formulas, reshuffle } from "./ChemicalData";
 
-import { sound } from "./Sounds";
+import { sound, soundsType } from "./Sounds";
 import { BestResultsScreen, getBestResults } from "./BestResultsScreen";
 
 import { GRADE_CLASS_ARRAY } from "./ChemicalData";
@@ -63,7 +63,7 @@ const App: React.FC = () => {
     setResufledFormulas(newResufledFormulas);
     // console.log("newResufledFormulas = ", newResufledFormulas);
     setStepData({ stepNumber: 1, score: 0, gradeClass: grade });
-    sound(0);
+    sound(soundsType.START);
   }, []);
 
   const handleFinishEvent = useCallback(
@@ -141,13 +141,14 @@ const App: React.FC = () => {
                 ? "buttonPositionShowRecords transition-true"
                 : "startPosition"
             }
-            handleClick={() =>
+            handleClick={() => {
               setStepData({
                 stepNumber: BEST_RESULTS_SCREEN_STATE,
                 score: 0,
                 gradeClass
-              })
-            }
+              });
+              sound(soundsType.BEST_RESULTS);
+            }}
           />
           <Button
             name="Неправильные ответы"
