@@ -12,8 +12,8 @@ export enum soundsType {
 const audioPaths: { [key in soundsType]: string } = {
   START: process.env.PUBLIC_URL + "/sounds/162485__kastenfrosch__space.mp3",
   TRUE_SHOT:
-    process.env.PUBLIC_URL + "/sounds/135510__chriddof__space-bloop.wav",
-  FALSE_SHOT: process.env.PUBLIC_URL + "/sounds/432761__xpoki__lazershot.wav",
+    process.env.PUBLIC_URL + "/sounds/135510__chriddof__space-bloop.mp3",
+  FALSE_SHOT: process.env.PUBLIC_URL + "/sounds/432761__xpoki__lazershot.mp3",
   BEST_RESULTS:
     process.env.PUBLIC_URL + "/sounds/477552__abacagi__explosion-sfx.mp3"
 };
