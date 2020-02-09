@@ -1,6 +1,10 @@
 import React from "react";
 
-export type ButtonClickedType = "Кислота" | "Соль" | "Основание" | "Оксид";
+export type ButtonClickedType =
+  | "Кислота"
+  | "Соль"
+  | "Основание"
+  | "Оксид";
 
 export type ChemicalType = {
   name: string;
@@ -10,13 +14,16 @@ export type ChemicalType = {
 };
 
 export function reshuffle<T>(arr: T[]): T[] {
-  const arr1 = arr.map((item: T): [number, T] => [Math.random(), item]);
+  const arr1 = arr.map((item: T): [number, T] => [
+    Math.random(),
+    item
+  ]);
   arr1.sort((a, b) => a[0] - b[0]);
   return arr1.map(pair => pair[1]);
 }
 
 export const formulas: { [key: string]: ChemicalType[] } = {
-  "": [
+  "Уровень 1": [
     {
       name: "азотная кислота",
       text: "",
