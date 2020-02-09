@@ -1,14 +1,25 @@
 import React, { useState, useCallback, useEffect } from "react";
 
-import Check from "./Check";
+import { Button } from "./Button";
+import Step from "./Step";
 
-import { sound1 } from "./Sounds";
+import { formulas, reshuffle } from "./ChemicalData";
 
-const MAIN_ANIMATION_DURATION = 5000;
+import { sound } from "./Sounds";
+
+const MAIN_ANIMATION_DURATION = 10000;
 const CLICK_ANIMATION_DURATION = 1000;
 
+const CHECKS_TOTAL = 5;
+
 const App: React.FC = () => {
-  const [checkNumber, setCheckNumber] = useState(0);
+  const [{ stepNumber, score }, setStepData] = useState<{
+    stepNumber: number;
+    score: number;
+  }>({ stepNumber: 0, score: 0 });
+  const [resufledFormulas, setResufledFormulas] = useState(formulas);
+
+  const [animationStep, setAnimationStep] = useState(false);
 
   useEffect(() => {
     const element = document.documentElement;
@@ -20,33 +31,98 @@ const App: React.FC = () => {
       "--click-animation-duration",
       (CLICK_ANIMATION_DURATION / 1000).toFixed(2) + "s"
     );
-    return () => {};
+    const timer = setTimeout(() => setAnimationStep(true), 50);
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
 
   const handleStartClick = useCallback(() => {
     console.log("Нажата кнопка старт");
-    setCheckNumber(1);
-    sound1.play();
+    const newResufledFormulas = reshuffle(formulas);
+    setResufledFormulas(newResufledFormulas);
+    console.log("newResufledFormulas = ", newResufledFormulas);
+    setStepData({ stepNumber: 1, score: 0 });
+    sound(0);
   }, []);
 
-  const handleFinishEvent = useCallback(() => {
-    console.log("handleFinishEvent fired");
-    setCheckNumber(checkNumber > 5 ? 0 : checkNumber + 1);
-  }, [checkNumber]);
+  const handleFinishEvent = useCallback(
+    ({
+      name,
+      type,
+      answer
+    }: {
+      name: string;
+      type: string;
+      answer: string | undefined;
+    }) => {
+      console.log("handleFinishEvent name = ", name);
+      console.log("handleFinishEvent type = ", type);
+      console.log("handleFinishEvent answer = ", answer);
+      let newScore;
+      if (answer === undefined) {
+        newScore = score;
+      } else {
+        if (type === answer) {
+          newScore = score + 2;
+        } else {
+          newScore = score - 1;
+        }
+      }
+
+      setStepData({
+        stepNumber:
+          stepNumber > CHECKS_TOTAL || stepNumber >= resufledFormulas.length
+            ? 0
+            : stepNumber + 1,
+        score: newScore
+      });
+    },
+    [stepNumber, resufledFormulas.length, score]
+  );
 
   return (
     <div>
-      {checkNumber === 0 ? (
-        <div key="Старт">
-          <button onClick={handleStartClick}>Старт</button>
+      {stepNumber === 0 ? (
+        <div key="Старт" className="main main1-background-size">
+          <Button
+            name="Начать новую игру"
+            className={
+              animationStep
+                ? "buttonPositionPlay transition-true"
+                : "startPosition"
+            }
+            handleClick={handleStartClick}
+          />
+          <Button
+            name="Лучшие результаты"
+            className={
+              animationStep
+                ? "buttonPositionShowRecords transition-true"
+                : "startPosition"
+            }
+            handleClick={handleStartClick}
+          />
+          <Button
+            name="Неправильные ответы"
+            className={
+              animationStep
+                ? "buttonPositionShowWrongShots transition-true"
+                : "startPosition"
+            }
+            handleClick={handleStartClick}
+          />
         </div>
       ) : (
-        <Check
-          key={checkNumber}
-          checkNumber={checkNumber}
+        <Step
+          key={stepNumber}
+          stepNumber={stepNumber}
+          checksTotal={CHECKS_TOTAL}
+          clickAnimationDuration={CLICK_ANIMATION_DURATION}
+          formula={resufledFormulas[stepNumber - 1]}
           handleFinishEvent={handleFinishEvent}
           mainAnimationDuration={MAIN_ANIMATION_DURATION}
-          clickAnimationDuration={CLICK_ANIMATION_DURATION}
+          score={score}
         />
       )}
     </div>
