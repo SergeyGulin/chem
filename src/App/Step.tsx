@@ -10,11 +10,16 @@ const buttons = {
   Кислота: "buttonPosition1",
   Соль: "buttonPosition2",
   Основание: "buttonPosition3",
-  Оксид: "buttonPosition4"
+  Оксид: "buttonPosition4",
+  Основной: "buttonPosition1",
+  Амфотерный: "buttonPosition2",
+  Кислотный: "buttonPosition3",
+  Несолеобразующий: "buttonPosition4"
 };
 
 const Step = (props: {
   stepNumber: number;
+  buttonNames: ButtonClickedType[];
   checksTotal: number;
   clickAnimationDuration: number;
   formula: ChemicalType;
@@ -34,7 +39,7 @@ const Step = (props: {
   const [state, setState] = useState<StateType>("zero");
   const [showHint, setShowHint] = useState(false);
 
-  const { stepNumber } = props;
+  const { stepNumber, buttonNames } = props;
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -142,22 +147,22 @@ const Step = (props: {
       </div>
 
       <ClassificationButton
-        name="Кислота"
+        name={buttonNames[0]}
         className={button1}
         handleClick={handleClick}
       />
       <ClassificationButton
-        name="Соль"
+        name={buttonNames[1]}
         className={button2}
         handleClick={handleClick}
       />
       <ClassificationButton
-        name="Основание"
+        name={buttonNames[2]}
         className={button3}
         handleClick={handleClick}
       />
       <ClassificationButton
-        name="Оксид"
+        name={buttonNames[3]}
         className={button4}
         handleClick={handleClick}
       />

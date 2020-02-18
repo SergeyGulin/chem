@@ -2,14 +2,21 @@ import React, { useState, useCallback, useEffect } from "react";
 import { Button } from "./Button";
 import Step from "./Step";
 
-import { formulas, reshuffle } from "./ChemicalData";
+import {
+  formulas,
+  reshuffle,
+  ChemicalType,
+  GRADE_CLASS_ARRAY
+} from "./ChemicalData";
 
 import { sound, soundsType } from "./Sounds";
 import { BestResultsScreen, getBestResults } from "./BestResultsScreen";
 
-import { GRADE_CLASS_ARRAY } from "./ChemicalData";
-
 import ErrosScreen from "./ErrosScreen";
+
+const getButtonNames = (forms: ChemicalType[]) => [
+  ...new Set(forms.map(item => item.type))
+];
 
 // import { convert } from "./util";
 // convert();
@@ -35,9 +42,10 @@ const App: React.FC = () => {
     score: 0,
     gradeClass: GRADE_CLASS_ARRAY[0]
   });
-  const [resufledFormulas, setResufledFormulas] = useState(
-    formulas[gradeClass]
-  );
+  const [{ resufledFormulas, buttonNames }, setResufledFormulas] = useState({
+    resufledFormulas: formulas[gradeClass],
+    buttonNames: getButtonNames(formulas[gradeClass])
+  });
 
   const [animationStep, setAnimationStep] = useState(false);
 
@@ -59,10 +67,15 @@ const App: React.FC = () => {
 
   const handleStartClick = useCallback((grade: string) => {
     // console.log("Нажата кнопка старт");
-    const newResufledFormulas = reshuffle(formulas[grade]);
-    setResufledFormulas(newResufledFormulas);
-    // console.log("newResufledFormulas = ", newResufledFormulas);
-    setStepData({ stepNumber: 1, score: 0, gradeClass: grade });
+    const resufledFormulas = reshuffle(formulas[grade]);
+    const buttonNames = getButtonNames(resufledFormulas);
+    setResufledFormulas({ resufledFormulas, buttonNames });
+    // console.log("resufledFormulas = ", resufledFormulas);
+    setStepData({
+      stepNumber: 1,
+      score: 0,
+      gradeClass: grade
+    });
     sound(soundsType.START);
   }, []);
 
@@ -232,6 +245,7 @@ const App: React.FC = () => {
       return (
         <Step
           key={stepNumber}
+          buttonNames={buttonNames}
           stepNumber={stepNumber}
           checksTotal={CHECKS_TOTAL}
           clickAnimationDuration={CLICK_ANIMATION_DURATION}
