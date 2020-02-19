@@ -90,19 +90,24 @@ const App: React.FC = () => {
       console.log("handleFinishEvent name = ", name);
       console.log("handleFinishEvent type = ", type);
       console.log("handleFinishEvent answer = ", answer);
-      const keyStep = `error/${gradeClass}/${formula}/${name}/${type}/${answer}`;
-      const count = parseInt(localStorage.getItem(keyStep) || "0", 10);
-
+      const errorKey = `error|${gradeClass}|${formula}|${name}|${type}|${answer}`;
+      const localArr = (localStorage.getItem(errorKey) || `0|0`).split("|");
+      const count = parseInt(localArr[0], 10);
       let newScore;
       if (answer === undefined) {
         newScore = score;
-        localStorage.setItem(keyStep, `${count + 1}`);
+        localStorage.setItem(errorKey, `${count + 1}|${Date.now()}`);
       } else {
         if (type === answer) {
           newScore = score + 2;
+          if (count > 0) {
+            localStorage.setItem(errorKey, `${count - 1}|${Date.now()}`);
+          } else {
+            localStorage.removeItem(errorKey);
+          }
         } else {
           newScore = score - 1;
-          localStorage.setItem(keyStep, `${count + 1}`);
+          localStorage.setItem(errorKey, `${count + 1}|${Date.now()}`);
         }
       }
 

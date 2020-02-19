@@ -6,24 +6,32 @@ type errorRecordType = {
   name: string;
   answer: string;
   type: string;
+  dateValue: string;
 };
 
 const ErrosScreen: React.FC = () => {
   const errors: { [gradeClass: string]: errorRecordType[] } = {};
   Object.entries(localStorage).forEach(([key, value]) => {
-    const params = key.split("/");
+    const params = key.split("|");
     if (params.length === 6 && params[0] === "error") {
       const [errorMark, gradeClass, formula, name, type, answer] = params;
       if (errorMark === "error") {
         const gradeErrors: any = errors[gradeClass] || [];
+        const valueArr = value.split("|");
+        const dateValue = valueArr.length === 2 ? valueArr[1] : "no date";
         const newGradeErrors: errorRecordType[] = [
           ...gradeErrors,
-          { gradeClass, formula, name, type, answer }
+          { gradeClass, formula, name, type, answer, dateValue }
         ];
         errors[gradeClass] = newGradeErrors;
       }
     }
   });
+
+  Object.values(errors).forEach(arr => {
+    arr.sort((a, b) => (a.dateValue > b.dateValue ? -1 : 1));
+  });
+
   console.log("errors = ", errors);
 
   return (
