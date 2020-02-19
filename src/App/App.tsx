@@ -34,7 +34,7 @@ const App: React.FC = () => {
     score: number;
     gradeClass: string;
   }>({
-    stepNumber: BEST_RESULTS_SCREEN_STATE,
+    stepNumber: START_SCREEN_STATE,
     score: 0,
     gradeClass: GRADE_CLASS_ARRAY[0]
   });
@@ -88,7 +88,7 @@ const App: React.FC = () => {
       console.log("handleFinishEvent name = ", name);
       console.log("handleFinishEvent type = ", type);
       console.log("handleFinishEvent answer = ", answer);
-      const keyStep = `${name}/${answer}`;
+      const keyStep = `${gradeClass}/${name}/${answer}/${type}`;
       const count = parseInt(localStorage.getItem(keyStep) || "0", 10);
 
       let newScore;

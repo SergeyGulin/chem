@@ -219,7 +219,6 @@ ul {
   left: 0rem;
   color: black;
   font-size: 3rem;
-  width: var(--formula-width);
   text-align: center;
 }
 
@@ -234,7 +233,6 @@ ul {
   color: black;
   font-size: 3rem;
   font-weight: 600;
-  width: var(--formula-width);
   text-align: center;
 }
 
@@ -242,7 +240,7 @@ ul {
   color: var(--dark-red-color);
   font-size: 1rem;
   font-weight: 600;
-  width: 2rem;
+  width: 3rem;
   padding: 0.2rem 1rem 0.2rem 0;
   text-align: right;
 }
