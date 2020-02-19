@@ -24,7 +24,7 @@ export const getButtonNames = (grade: string): ButtonClickedType[] => {
 export type ChemicalType = {
   name: string;
   type: ButtonClickedType;
-  formula: JSX.Element;
+  formula: string;
   text: string;
 };
 
@@ -39,194 +39,156 @@ export const formulas: { [key: string]: ChemicalType[] } = {
     {
       name: "азотная кислота",
       text: "",
+
       type: "Кислота",
-      formula: (
-        <div>
-          HNO<sub>3</sub>
-        </div>
-      )
+      formula: "HNO3"
     },
     {
       name: "азотистая кислота",
       text: "",
+
       type: "Кислота",
-      formula: (
-        <div>
-          НNO<sub>2</sub>
-        </div>
-      )
+      formula: "НNO2"
     },
     {
       name: "фтороводородная (плавиковая ) кислота",
       text: "",
+
       type: "Кислота",
-      formula: <div>HF</div>
+      formula: "HF"
     },
     {
       name: "борная кислота",
       text: "",
+
       type: "Кислота",
-      formula: (
-        <div>
-          Н<sub>3</sub>ВО<sub>3</sub>
-        </div>
-      )
+      formula: "Н3ВО3"
     },
     {
       name: "хлороводородная кислота",
       text: "",
+
       type: "Кислота",
-      formula: <div>HCl</div>
+      formula: "HCl"
     },
     {
       name: "уксусная кислота",
       text: "",
+
       type: "Кислота",
-      formula: (
-        <div>
-          СН<sub>3</sub>СООН
-        </div>
-      )
+      formula: "СН3СООН"
     },
     {
       name: "бромоводородная кислота",
       text: "",
+
       type: "Кислота",
-      formula: <div>HBr</div>
+      formula: "HBr"
     },
     {
       name: "муравьиная кислота",
       text: "",
+
       type: "Кислота",
-      formula: <div>НСООН</div>
+      formula: "НСООН"
     },
     {
       name: "иодоводородная кислота",
       text: "",
+
       type: "Кислота",
-      formula: <div>HI</div>
+      formula: "HI"
     },
     {
       name: "синильная кислота кислота",
       text: "",
+
       type: "Кислота",
-      formula: <div>НСN</div>
+      formula: "НСN"
     },
     {
       name: "серная кислота",
       text: "",
+
       type: "Кислота",
-      formula: (
-        <div>
-          H<sub>2</sub>SO<sub>4</sub>
-        </div>
-      )
+      formula: "H2SO4"
     },
     {
       name: "дихромовая кислота",
       text: "",
+
       type: "Кислота",
-      formula: (
-        <div>
-          Н<sub>2</sub>Сr<sub>2</sub>O<sub>7</sub>
-        </div>
-      )
+      formula: "Н2Сr2O7"
     },
     {
       name: "сернистая кислота",
       text: "",
+
       type: "Кислота",
-      formula: (
-        <div>
-          H<sub>2</sub>SO<sub>3</sub>
-        </div>
-      )
+      formula: "H2SO3"
     },
     {
       name: "хлорноватистая кислота",
       text: "",
+
       type: "Кислота",
-      formula: <div>НСlO</div>
+      formula: "НСlO"
     },
     {
       name: "сероводородная кислота",
       text: "",
+
       type: "Кислота",
-      formula: (
-        <div>
-          H<sub>2</sub>S
-        </div>
-      )
+      formula: "H2S"
     },
     {
       name: "хлорноватая кислота",
       text: "",
+
       type: "Кислота",
-      formula: (
-        <div>
-          HClO<sub>3</sub>
-        </div>
-      )
+      formula: "HClO3"
     },
     {
       name: "мышьяковая кислота",
       text: "",
+
       type: "Кислота",
-      formula: (
-        <div>
-          H<sub>3</sub>AsO<sub>4</sub>
-        </div>
-      )
+      formula: "H3AsO4"
     },
     {
       name: "угольная кислота",
       text: "",
+
       type: "Кислота",
-      formula: (
-        <div>
-          H<sub>2</sub>CO<sub>3</sub>
-        </div>
-      )
+      formula: "H2CO3"
     },
     {
       name: "селеновая кислота",
       text: "",
+
       type: "Кислота",
-      formula: (
-        <div>
-          H<sub>2</sub>SO<sub>4</sub>
-        </div>
-      )
+      formula: "H2SO4"
     },
     {
       name: "кремниевая кислота",
       text: "",
+
       type: "Кислота",
-      formula: (
-        <div>
-          H<sub>2</sub>SiO<sub>3</sub>
-        </div>
-      )
+      formula: "H2SiO3"
     },
     {
       name: "селеноводородная кислота",
       text: "",
+
       type: "Кислота",
-      formula: (
-        <div>
-          H<sub>2</sub>Sе
-        </div>
-      )
+      formula: "H2Sе"
     },
     {
       name: "фосфорная (ортофосфорная) кислота",
       text: "",
+
       type: "Кислота",
-      formula: (
-        <div>
-          H<sub>3</sub>PO<sub>4</sub>
-        </div>
-      )
+      formula: "H3PO4"
     },
 
     /*
@@ -234,196 +196,158 @@ export const formulas: { [key: string]: ChemicalType[] } = {
     {
       name: "Гидроксид лития",
       text: "",
+
       type: "Основание",
-      formula: <div>LiOH</div>
+      formula: "LiOH"
     },
     {
       name: "Гидроксид натрия",
       text: "",
+
       type: "Основание",
-      formula: <div>NaOH</div>
+      formula: "NaOH"
     },
     {
       name: "Гидроксид калия",
       text: "",
+
       type: "Основание",
-      formula: <div>KOH</div>
+      formula: "KOH"
     },
     {
       name: "Гидроксид рубидия",
       text: "",
+
       type: "Основание",
-      formula: <div>RbOH</div>
+      formula: "RbOH"
     },
     {
       name: "Гидроксид лития",
       text: "",
+
       type: "Основание",
-      formula: <div>LiOH</div>
+      formula: "LiOH"
     },
     {
       name: "Гидроксид цезия",
       text: "",
+
       type: "Основание",
-      formula: <div>CsOH</div>
+      formula: "CsOH"
     },
     {
       name: "Гидроксид меди(I)",
       text: "",
+
       type: "Основание",
-      formula: <div>CuOH</div>
+      formula: "CuOH"
     },
     {
       name: "Гидроксид кальция",
       text: "",
+
       type: "Основание",
-      formula: (
-        <div>
-          Ca(OH)<sub>2</sub>
-        </div>
-      )
+      formula: "Ca(OH)2"
     },
     {
       name: "Гидроксид меди(II)",
       text: "",
+
       type: "Основание",
-      formula: (
-        <div>
-          Cu(OH)<sub>2</sub>
-        </div>
-      )
+      formula: "Cu(OH)2"
     },
     {
       name: "Гидроксид железа(II)",
       text: "",
+
       type: "Основание",
-      formula: (
-        <div>
-          Fe(OH)<sub>2</sub>
-        </div>
-      )
+      formula: "Fe(OH)2"
     },
     {
       name: "Гидроксид бария",
       text: "",
+
       type: "Основание",
-      formula: (
-        <div>
-          Ba(OH)<sub>2</sub>
-        </div>
-      )
+      formula: "Ba(OH)2"
     },
     {
       name: "Гидроксид кобальта(II)",
       text: "",
+
       type: "Основание",
-      formula: (
-        <div>
-          Co(OH)<sub>2</sub>
-        </div>
-      )
+      formula: "Co(OH)2"
     },
     {
       name: "Гидроксид никеля (II)",
       text: "",
+
       type: "Основание",
-      formula: (
-        <div>
-          Ni(OH)<sub>2</sub>
-        </div>
-      )
+      formula: "Ni(OH)2"
     },
     {
       name: "Гидроксид свинца (II)",
       text: "",
+
       type: "Основание",
-      formula: (
-        <div>
-          Pb(OH)<sub>2</sub>
-        </div>
-      )
+      formula: "Pb(OH)2"
     },
     /*
      **********************************************************************/
     {
       name: "гидроксид железа(III)",
       text: "",
+
       type: "Основание",
-      formula: (
-        <div>
-          Fe(OH)<sub>3</sub>
-        </div>
-      )
+      formula: "Fe(OH)3"
     },
     {
       name: "гидроксид алюминия",
       text: "",
+
       type: "Основание",
-      formula: (
-        <div>
-          Al(OH)<sub>3</sub>
-        </div>
-      )
+      formula: "Al(OH)3"
     },
     {
       name: "гидроксид цинка",
       text: "",
+
       type: "Основание",
-      formula: (
-        <div>
-          Zn(OH)<sub>2</sub>
-        </div>
-      )
+      formula: "Zn(OH)2"
     },
     {
       name: "гидроксид бериллия",
       text: "",
+
       type: "Основание",
-      formula: (
-        <div>
-          Be(OH)<sub>2</sub>
-        </div>
-      )
+      formula: "Be(OH)2"
     },
     {
       name: "гидроксид хрома(III)",
       text: "",
+
       type: "Основание",
-      formula: (
-        <div>
-          Cr(OH)<sub>3</sub>
-        </div>
-      )
+      formula: "Cr(OH)3"
     },
     {
       name: "гидроксид марганца (IV)",
       text: "",
+
       type: "Основание",
-      formula: (
-        <div>
-          Mn(OH)<sub>4</sub>
-        </div>
-      )
+      formula: "Mn(OH)4"
     },
     {
       name: "гидроксид cвинца (IV)",
       text: "",
+
       type: "Основание",
-      formula: (
-        <div>
-          Pb(OH)<sub>4</sub>
-        </div>
-      )
+      formula: "Pb(OH)4"
     },
     {
       name: "гидроксид марганца (II)",
       text: "",
+
       type: "Основание",
-      formula: (
-        <div>
-          Mn(OH)<sub>2</sub>
-        </div>
-      )
+      formula: "Mn(OH)2"
     },
 
     /*
@@ -431,42 +355,30 @@ export const formulas: { [key: string]: ChemicalType[] } = {
     {
       name: "сульфат натрия",
       text: "",
+
       type: "Соль",
-      formula: (
-        <div>
-          Na<sub>2</sub>SO<sub>4</sub>
-        </div>
-      )
+      formula: "Na2SO4"
     },
     {
       name: "хлорид меди (II)",
       text: "",
+
       type: "Соль",
-      formula: (
-        <div>
-          CuCl<sub>2</sub>
-        </div>
-      )
+      formula: "CuCl2"
     },
     {
       name: "карбонат калия",
       text: "",
+
       type: "Соль",
-      formula: (
-        <div>
-          К<sub>2</sub>CO<sub>3</sub>
-        </div>
-      )
+      formula: "К2CO3"
     },
     {
       name: "силикат бария",
       text: "",
+
       type: "Соль",
-      formula: (
-        <div>
-          ВаSiO<sub>3</sub>
-        </div>
-      )
+      formula: "ВаSiO3"
     },
 
     /*
@@ -474,194 +386,156 @@ export const formulas: { [key: string]: ChemicalType[] } = {
     {
       name: "Кислотный оксид",
       text: "",
+
       type: "Оксид",
-      formula: (
-        <div>
-          SO<sub>3</sub>
-        </div>
-      )
+      formula: "SO3"
     },
     {
       name: "Кислотный оксид",
       text: "",
+
       type: "Оксид",
-      formula: (
-        <div>
-          P<sub>2</sub>O<sub>5</sub>
-        </div>
-      )
+      formula: "P2O5"
     },
     {
       name: "Кислотный оксид",
       text: "",
+
       type: "Оксид",
-      formula: (
-        <div>
-          CO<sub>2</sub>
-        </div>
-      )
+      formula: "CO2"
     },
     {
       name: "Кислотный оксид",
       text: "",
+
       type: "Оксид",
-      formula: (
-        <div>
-          N<sub>2</sub>O<sub>3</sub>
-        </div>
-      )
+      formula: "N2O3"
     },
     {
       name: "Кислотный оксид",
       text: "",
+
       type: "Оксид",
-      formula: (
-        <div>
-          Cl<sub>2</sub>O<sub>7</sub>
-        </div>
-      )
+      formula: "Cl2O7"
     },
     {
       name: "Кислотный оксид",
       text: "",
+
       type: "Оксид",
-      formula: (
-        <div>
-          WO<sub>3</sub>
-        </div>
-      )
+      formula: "WO3"
     },
     {
       name: "Кислотный оксид",
       text: "",
+
       type: "Оксид",
-      formula: (
-        <div>
-          SiO<sub>2</sub>
-        </div>
-      )
+      formula: "SiO2"
     },
     {
       name: "Кислотный оксид",
       text: "",
+
       type: "Оксид",
-      formula: (
-        <div>
-          Mn<sub>2</sub>O<sub>7</sub>
-        </div>
-      )
+      formula: "Mn2O7"
     },
     {
       name: "Основной оксид",
       text: "",
+
       type: "Оксид",
-      formula: <div>CuO</div>
+      formula: "CuO"
     },
     {
       name: "Основной оксид",
       text: "",
+
       type: "Оксид",
-      formula: (
-        <div>
-          Na<sub>2</sub>O
-        </div>
-      )
+      formula: "Na2O"
     },
     {
       name: "Основной оксид",
       text: "",
+
       type: "Оксид",
-      formula: (
-        <div>
-          Li<sub>2</sub>O
-        </div>
-      )
+      formula: "Li2O"
     },
     {
       name: "Основной оксид",
       text: "",
+
       type: "Оксид",
-      formula: <div>BaO</div>
+      formula: "BaO"
     },
     {
       name: "Основной оксид",
       text: "",
+
       type: "Оксид",
-      formula: <div>CoO</div>
+      formula: "CoO"
     },
     {
       name: "Основной оксид",
       text: "",
+
       type: "Оксид",
-      formula: <div>FeO</div>
+      formula: "FeO"
     },
     {
       name: "Основной оксид",
       text: "",
+
       type: "Оксид",
-      formula: <div>SrO</div>
+      formula: "SrO"
     },
     {
       name: "Основной оксид",
       text: "",
+
       type: "Оксид",
-      formula: (
-        <div>
-          Cu<sub>2</sub>O
-        </div>
-      )
+      formula: "Cu2O"
     },
     {
       name: "амфотерный оксид",
       text: "",
+
       type: "Оксид",
-      formula: <div>ZnO</div>
+      formula: "ZnO"
     },
     {
       name: "амфотерный оксид",
       text: "",
+
       type: "Оксид",
-      formula: <div>BeO</div>
+      formula: "BeO"
     },
     {
       name: "амфотерный оксид",
       text: "",
+
       type: "Оксид",
-      formula: (
-        <div>
-          Al<sub>2</sub>O<sub>3</sub>
-        </div>
-      )
+      formula: "Al2O3"
     },
     {
       name: "амфотерный оксид",
       text: "",
+
       type: "Оксид",
-      formula: (
-        <div>
-          Fe<sub>2</sub>O<sub>3</sub>
-        </div>
-      )
+      formula: "Fe2O3"
     },
     {
       name: "амфотерный оксид",
       text: "",
+
       type: "Оксид",
-      formula: (
-        <div>
-          PbO<sub>2</sub>
-        </div>
-      )
+      formula: "PbO2"
     },
     {
       name: "амфотерный оксид",
       text: "",
+
       type: "Оксид",
-      formula: (
-        <div>
-          MnO<sub>2</sub>
-        </div>
-      )
+      formula: "MnO2"
     },
     /*
      **********************************************************************/
@@ -670,429 +544,365 @@ export const formulas: { [key: string]: ChemicalType[] } = {
       name: "Гидроксид аммония",
       text: "Сульфид аммония",
       type: "Основание",
-      formula: (
-        <div>
-          NH<sub>4</sub>OH
-        </div>
-      )
+      formula: "NH4OH"
     },
     {
       name: "Cульфит натрия",
       text: "Cульфит натрия",
       type: "Соль",
-      formula: (
-        <div>
-          Na<sub>2</sub>SO<sub>3</sub>
-        </div>
-      )
+      formula: "Na2SO3"
     },
     {
       name: "Вода (оксид водорода)",
       text: "Вода",
       type: "Оксид",
-      formula: (
-        <div>
-          H<sub>2</sub>O
-        </div>
-      )
+      formula: "H2O"
     }
   ],
   '"Оксиды"': [
     {
       name: "Несолеобразующий оксид",
       text: "",
+
       type: "Несолеобразующий",
-      formula: <div>NO</div>
+      formula: "NO"
     },
     {
       name: "Несолеобразующий оксид",
       text: "",
+
       type: "Несолеобразующий",
-      formula: (
-        <div>
-          N<sub>2</sub>O
-        </div>
-      )
+      formula: "N2O"
     },
     {
       name: "Несолеобразующий оксид",
       text: "",
+
       type: "Несолеобразующий",
-      formula: <div>CO</div>
+      formula: "CO"
     },
     {
       name: "Несолеобразующий оксид",
       text: "",
+
       type: "Несолеобразующий",
-      formula: <div>SiO</div>
+      formula: "SiO"
     },
     {
       name: "Кислотный оксид",
       text: "",
+
       type: "Кислотный",
-      formula: (
-        <div>
-          SO<sub>3</sub>
-        </div>
-      )
+      formula: "SO3"
     },
     {
       name: "Кислотный оксид",
       text: "",
+
       type: "Кислотный",
-      formula: (
-        <div>
-          P<sub>2</sub>O<sub>5</sub>
-        </div>
-      )
+      formula: "P2O5"
     },
     {
       name: "Кислотный оксид",
       text: "",
+
       type: "Кислотный",
-      formula: (
-        <div>
-          CO<sub>2</sub>
-        </div>
-      )
+      formula: "CO2"
     },
     {
       name: "Кислотный оксид",
       text: "",
+
       type: "Кислотный",
-      formula: (
-        <div>
-          N<sub>2</sub>O<sub>3</sub>
-        </div>
-      )
+      formula: "N2O3"
     },
     {
       name: "Кислотный оксид",
       text: "",
+
       type: "Кислотный",
-      formula: (
-        <div>
-          Cl<sub>2</sub>O<sub>7</sub>
-        </div>
-      )
+      formula: "Cl2O7"
     },
     {
       name: "Кислотный оксид",
       text: "",
+
       type: "Кислотный",
-      formula: (
-        <div>
-          WO<sub>3</sub>
-        </div>
-      )
+      formula: "WO3"
     },
     {
       name: "Кислотный оксид",
       text: "",
+
       type: "Кислотный",
-      formula: (
-        <div>
-          SiO<sub>2</sub>
-        </div>
-      )
+      formula: "SiO2"
     },
     {
       name: "Кислотный оксид",
       text: "",
+
       type: "Кислотный",
-      formula: (
-        <div>
-          Mn<sub>2</sub>O<sub>7</sub>
-        </div>
-      )
+      formula: "Mn2O7"
     },
     {
       name: "Кислотный оксид",
       text: "",
+
       type: "Кислотный",
-      formula: (
-        <div>
-          Cl<sub>2</sub>O<sub>3</sub>
-        </div>
-      )
+      formula: "Cl2O3"
     },
     {
       name: "Кислотный оксид",
       text: "",
+
       type: "Кислотный",
-      formula: (
-        <div>
-          NO<sub>2</sub>
-        </div>
-      )
+      formula: "NO2"
     },
     {
       name: "Кислотный оксид",
       text: "",
+
       type: "Кислотный",
-      formula: (
-        <div>
-          CrO<sub>3</sub>
-        </div>
-      )
+      formula: "CrO3"
     },
     {
       name: "Кислотный оксид",
       text: "",
+
       type: "Кислотный",
-      formula: (
-        <div>
-          V<sub>2</sub>O<sub>5</sub>
-        </div>
-      )
+      formula: "V2O5"
     },
     {
       name: "Кислотный оксид",
       text: "",
+
       type: "Кислотный",
-      formula: (
-        <div>
-          SeO<sub>3</sub>
-        </div>
-      )
+      formula: "SeO3"
     },
     {
       name: "Кислотный оксид",
       text: "",
+
       type: "Кислотный",
-      formula: (
-        <div>
-          Br<sub>2</sub>O<sub>5</sub>
-        </div>
-      )
+      formula: "Br2O5"
     },
     {
       name: "Кислотный оксид",
       text: "",
+
       type: "Кислотный",
-      formula: (
-        <div>
-          As<sub>2</sub>O<sub>5</sub>
-        </div>
-      )
+      formula: "As2O5"
     },
     {
       name: "Основной оксид",
       text: "",
+
       type: "Основной",
-      formula: <div>CuO</div>
+      formula: "CuO"
     },
     {
       name: "Основной оксид",
       text: "",
+
       type: "Основной",
-      formula: (
-        <div>
-          Na<sub>2</sub>O
-        </div>
-      )
+      formula: "Na2O"
     },
     {
       name: "Основной оксид",
       text: "",
+
       type: "Основной",
-      formula: (
-        <div>
-          Li<sub>2</sub>O
-        </div>
-      )
+      formula: "Li2O"
     },
     {
       name: "Основной оксид",
       text: "",
+
       type: "Основной",
-      formula: <div>BaO</div>
+      formula: "BaO"
     },
     {
       name: "Основной оксид",
       text: "",
+
       type: "Основной",
-      formula: <div>CoO</div>
+      formula: "CoO"
     },
     {
       name: "Основной оксид",
       text: "",
+
       type: "Основной",
-      formula: <div>FeO</div>
+      formula: "FeO"
     },
     {
       name: "Основной оксид",
       text: "",
+
       type: "Основной",
-      formula: <div>SrO</div>
+      formula: "SrO"
     },
     {
       name: "Основной оксид",
       text: "",
+
       type: "Основной",
-      formula: (
-        <div>
-          Cu<sub>2</sub>O
-        </div>
-      )
+      formula: "Cu2O"
     },
     {
       name: "Основной оксид",
       text: "",
+
       type: "Основной",
-      formula: (
-        <div>
-          K<sub>2</sub>O
-        </div>
-      )
+      formula: "K2O"
     },
     {
       name: "Основной оксид",
       text: "",
+
       type: "Основной",
-      formula: (
-        <div>
-          Ag<sub>2</sub>O
-        </div>
-      )
+      formula: "Ag2O"
     },
     {
       name: "Основной оксид",
       text: "",
+
       type: "Основной",
-      formula: <div>CrO</div>
+      formula: "CrO"
     },
     {
       name: "Основной оксид",
       text: "",
+
       type: "Основной",
-      formula: (
-        <div>
-          Rb<sub>2</sub>O
-        </div>
-      )
+      formula: "Rb2O"
     },
     {
       name: "Основной оксид",
       text: "",
+
       type: "Основной",
-      formula: <div>GeО</div>
+      formula: "GeО"
     },
     {
       name: "Основной оксид",
       text: "",
+
       type: "Основной",
-      formula: <div>HgО</div>
+      formula: "HgО"
     },
     {
       name: "Основной оксид",
       text: "",
+
       type: "Основной",
-      formula: <div>PbО </div>
+      formula: "PbО "
     },
     {
       name: "Амфотерный оксид",
       text: "",
+
       type: "Амфотерный",
-      formula: <div>ZnO</div>
+      formula: "ZnO"
     },
     {
       name: "Амфотерный оксид",
       text: "",
+
       type: "Амфотерный",
-      formula: <div>BeO</div>
+      formula: "BeO"
     },
     {
       name: "Амфотерный оксид",
       text: "",
+
       type: "Амфотерный",
-      formula: (
-        <div>
-          Al<sub>2</sub>O<sub>3</sub>
-        </div>
-      )
+      formula: "Al2O3"
     },
     {
       name: "Амфотерный оксид",
       text: "",
+
       type: "Амфотерный",
-      formula: (
-        <div>
-          Fe<sub>2</sub>O<sub>3</sub>
-        </div>
-      )
+      formula: "Fe2O3"
     },
     {
       name: "Амфотерный оксид",
       text: "",
+
       type: "Амфотерный",
-      formula: (
-        <div>
-          PbO<sub>2</sub>
-        </div>
-      )
+      formula: "PbO2"
     },
     {
       name: "Амфотерный оксид",
       text: "",
+
       type: "Амфотерный",
-      formula: (
-        <div>
-          MnO<sub>2</sub>
-        </div>
-      )
+      formula: "MnO2"
     },
     {
       name: "Амфотерный оксид",
       text: "",
+
       type: "Амфотерный",
-      formula: (
-        <div>
-          Cr<sub>2</sub>O<sub>3</sub>
-        </div>
-      )
+      formula: "Cr2O3"
     },
     {
       name: "Амфотерный оксид",
       text: "",
+
       type: "Амфотерный",
-      formula: (
-        <div>
-          SnO<sub>2</sub>
-        </div>
-      )
+      formula: "SnO2"
     },
     {
       name: "Амфотерный оксид",
       text: "",
+
       type: "Амфотерный",
-      formula: (
-        <div>
-          TiO<sub>2</sub>
-        </div>
-      )
+      formula: "TiO2"
     },
     {
       name: "Амфотерный оксид",
       text: "",
+
       type: "Амфотерный",
-      formula: (
-        <div>
-          GeО<sub>2</sub>
-        </div>
-      )
+      formula: "GeО2"
     },
     {
       name: "Амфотерный оксид",
       text: "",
+
       type: "Амфотерный",
-      formula: (
-        <div>
-          Sc<sub>2</sub>O<sub>3</sub>
-        </div>
-      )
+      formula: "Sc2O3"
     }
   ]
 };
 
 export const GRADE_CLASS_ARRAY = Object.keys(formulas);
+
+export const formulaRender = (str: string) => {
+  const arr: string[] = [];
+  let akk: string[] = [];
+  for (const char of str) {
+    if (char >= "0" && char <= "9") {
+      arr.push(akk.join(""));
+      akk = [];
+      arr.push(char);
+    } else {
+      akk.push(char);
+    }
+  }
+  arr.push(akk.join(""));
+
+  return (
+    <div>
+      {arr.map((item, index) =>
+        index % 2 === 0 ? (
+          <span key={index}>{item}</span>
+        ) : (
+          <sub key={index}>{item}</sub>
+        )
+      )}
+    </div>
+  );
+};

@@ -58,6 +58,9 @@ ul {
 .main2-background-size {
   background-size: 7px 7px;
 }
+.main3-background-size {
+  background-size: 3px 3px;
+}
 
 /* формула химического вещества и копки с названием классов веществ
 ******************************************************************/
@@ -262,7 +265,6 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow-y: scroll;
 }
 
 .font-size-1-5 {
@@ -270,4 +272,8 @@ ul {
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--dark-red-color);
+}
+
+.overflow-scroll {
+  overflow: scroll;
 }

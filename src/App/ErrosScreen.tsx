@@ -1,5 +1,5 @@
 import React from "react";
-
+import { formulaRender } from "./ChemicalData";
 type errorRecordType = {
   gradeClass: string;
   name: string;
@@ -25,9 +25,14 @@ const ErrosScreen: React.FC = () => {
   console.log("errors = ", errors);
 
   return (
-    <div className="main main1-background-size">
+    <div className="main main3-background-size">
+      {formulaRender("SO3")}
+      {formulaRender("CO2")}
+      {formulaRender("N2O3")}
+      {formulaRender("Cl2O7")}
+      {formulaRender("aaaaaa")}
       <div className="display-flex-center">
-        <div>
+        <div className="overflow-scroll">
           <div className="display-flex-center font-size-1-5">Ошибки:</div>
           {Object.entries(errors).map(([grade, gradeErrors]) => (
             <div key={grade} className="font-size-1-5">
@@ -35,10 +40,7 @@ const ErrosScreen: React.FC = () => {
               {gradeErrors.map(({ gradeClass, name, answer }) => (
                 <div className="display-flex" key={name}>
                   <div className="record-score">{name}</div>
-                  <div className="record-date">
-                    {new Date(answer).toLocaleDateString()}{" "}
-                    {new Date(answer).toLocaleTimeString()}
-                  </div>
+                  <div className="record-date">{answer}</div>
                 </div>
               ))}
             </div>

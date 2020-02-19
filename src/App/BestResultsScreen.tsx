@@ -11,7 +11,7 @@ export const getBestResults = (key: string): scoreType[] =>
 
 export const BestResultsScreen = (): JSX.Element => {
   return (
-    <div className="main main1-background-size">
+    <div className="main main2-background-size">
       <div className="display-flex-center">
         <div>
           <div className="display-flex-center font-size-1-5">

@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect } from "react";
 
 import { ClassificationButton } from "./Button";
 import { sound, soundsType } from "./Sounds";
-import { ButtonClickedType, ChemicalType } from "./ChemicalData";
+import { ButtonClickedType, ChemicalType, formulaRender } from "./ChemicalData";
 
 type StateType = "zero" | "zero+" | "zero+false" | ButtonClickedType;
 
@@ -169,7 +169,7 @@ const Step = (props: {
 
       <div className={formulaPositionClass}>
         <button className="formulaView" onClick={() => setShowHint(true)}>
-          <div>{props.formula.formula}</div>
+          {formulaRender(props.formula.formula)}
           {showHint && <div className="formula-hint">{props.formula.text}</div>}
         </button>
       </div>
