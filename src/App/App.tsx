@@ -34,7 +34,7 @@ const App: React.FC = () => {
     score: number;
     gradeClass: string;
   }>({
-    stepNumber: START_SCREEN_STATE,
+    stepNumber: BEST_RESULTS_SCREEN_STATE,
     score: 0,
     gradeClass: GRADE_CLASS_ARRAY[0]
   });
