@@ -12,9 +12,9 @@ export type ButtonClickedType =
 
 export const getButtonNames = (grade: string): ButtonClickedType[] => {
   switch (grade) {
-    case '"Вещества"':
+    case "Вещества":
       return ["Кислота", "Соль", "Основание", "Оксид"];
-    case '"Оксиды"':
+    case "Оксиды":
       return ["Основной", "Амфотерный", "Кислотный", "Несолеобразующий"];
     default:
       throw new Error("Unknown grade = " + grade);
@@ -35,7 +35,7 @@ export function reshuffle<T>(arr: T[]): T[] {
 }
 
 export const formulas: { [key: string]: ChemicalType[] } = {
-  '"Вещества"': [
+  Вещества: [
     {
       name: "азотная кислота",
       text: "",
@@ -559,7 +559,7 @@ export const formulas: { [key: string]: ChemicalType[] } = {
       formula: "H2O"
     }
   ],
-  '"Оксиды"': [
+  Оксиды: [
     {
       name: "Несолеобразующий оксид",
       text: "",
