@@ -10,6 +10,17 @@ export type ButtonClickedType =
   | "Кислотный"
   | "Несолеобразующий";
 
+export const getButtonNames = (grade: string): ButtonClickedType[] => {
+  switch (grade) {
+    case '"Вещества"':
+      return ["Кислота", "Соль", "Основание", "Оксид"];
+    case '"Оксиды"':
+      return ["Основной", "Амфотерный", "Кислотный", "Несолеобразующий"];
+    default:
+      throw new Error("Unknown grade = " + grade);
+  }
+};
+
 export type ChemicalType = {
   name: string;
   type: ButtonClickedType;

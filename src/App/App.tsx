@@ -3,9 +3,9 @@ import { Button } from "./Button";
 import Step from "./Step";
 
 import {
+  getButtonNames,
   formulas,
   reshuffle,
-  ChemicalType,
   GRADE_CLASS_ARRAY
 } from "./ChemicalData";
 
@@ -13,10 +13,6 @@ import { sound, soundsType } from "./Sounds";
 import { BestResultsScreen, getBestResults } from "./BestResultsScreen";
 
 import ErrosScreen from "./ErrosScreen";
-
-const getButtonNames = (forms: ChemicalType[]) => [
-  ...new Set(forms.map(item => item.type))
-];
 
 // import { convert } from "./util";
 // convert();
@@ -44,7 +40,7 @@ const App: React.FC = () => {
   });
   const [{ resufledFormulas, buttonNames }, setResufledFormulas] = useState({
     resufledFormulas: formulas[gradeClass],
-    buttonNames: getButtonNames(formulas[gradeClass])
+    buttonNames: getButtonNames(gradeClass)
   });
 
   const [animationStep, setAnimationStep] = useState(false);
@@ -68,7 +64,7 @@ const App: React.FC = () => {
   const handleStartClick = useCallback((grade: string) => {
     // console.log("Нажата кнопка старт");
     const resufledFormulas = reshuffle(formulas[grade]);
-    const buttonNames = getButtonNames(resufledFormulas);
+    const buttonNames = getButtonNames(grade);
     setResufledFormulas({ resufledFormulas, buttonNames });
     // console.log("resufledFormulas = ", resufledFormulas);
     setStepData({
