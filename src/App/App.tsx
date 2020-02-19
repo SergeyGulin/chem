@@ -90,7 +90,7 @@ const App: React.FC = () => {
       console.log("handleFinishEvent name = ", name);
       console.log("handleFinishEvent type = ", type);
       console.log("handleFinishEvent answer = ", answer);
-      const keyStep = `error/${gradeClass}/${formula}/${name}/${answer}`;
+      const keyStep = `error/${gradeClass}/${formula}/${name}/${type}/${answer}`;
       const count = parseInt(localStorage.getItem(keyStep) || "0", 10);
 
       let newScore;

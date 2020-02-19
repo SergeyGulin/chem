@@ -39,7 +39,6 @@ ul {
   right: 0;
   overflow: hidden;
   text-size-adjust: none;
-
   /* background: linear-gradient(to top left, #409ae6, #205eb1); */
   background: #a7a9ac;
   background-image: -webkit-gradient(
@@ -60,6 +59,14 @@ ul {
 }
 .main3-background-size {
   background-size: 3px 3px;
+  background: #a7a9ac;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    color-stop(0.34, rgba(230, 237, 241, 0.1)),
+    color-stop(0.67, rgba(230, 237, 241, 0))
+  );
 }
 
 /* формула химического вещества и копки с названием классов веществ
@@ -275,5 +282,34 @@ ul {
 }
 
 .overflow-scroll {
-  overflow: scroll;
+  position: relative;
+  overflow-y: scroll;
+  padding: 0 20px;
+  white-space: break-spaces;
+}
+
+.error-header {
+  font-size: 0.8rem;
+  color: black;
+  max-width: 5rem;
+  padding: 0.2rem 1rem 0.2rem 0;
+  text-align: left;
+}
+.error-formula {
+  font-size: 0.8rem;
+  color: var(--dark-red-color);
+  max-width: 5rem;
+  padding: 0.2rem 1rem 0.2rem 0;
+  text-align: left;
+}
+
+.error-name {
+  font-size: 0.8rem;
+  color: white;
+  text-align: left;
+  max-width: 5rem;
+}
+
+.text-decoration-line {
+  text-decoration: line-through;
 }
