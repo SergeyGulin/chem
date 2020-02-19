@@ -52,7 +52,9 @@ const ErrosScreen: React.FC = () => {
                       </td>
                       <td className="error-name">{name}</td>
                       <td className="error-formula text-decoration-line">
-                        {answer}
+                        {answer && answer !== "undefined"
+                          ? answer
+                          : "Нет ответа"}
                       </td>
                       <td className="error-name">{type}</td>
                     </tr>

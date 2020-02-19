@@ -275,7 +275,7 @@ ul {
 }
 
 .font-size-1-5 {
-  padding: 2rem 0;
+  padding: 20px 20px;
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--dark-red-color);
@@ -284,30 +284,24 @@ ul {
 .overflow-scroll {
   position: relative;
   overflow-y: scroll;
-  padding: 0 20px;
-  white-space: break-spaces;
+  word-wrap: break-word;
 }
 
 .error-header {
   font-size: 0.8rem;
   color: black;
-  max-width: 5rem;
-  padding: 0.2rem 1rem 0.2rem 0;
-  text-align: left;
+  padding-bottom: 0.6rem;
 }
 .error-formula {
   font-size: 0.8rem;
   color: var(--dark-red-color);
-  max-width: 5rem;
-  padding: 0.2rem 1rem 0.2rem 0;
-  text-align: left;
+  padding-bottom: 0.6rem;
 }
 
 .error-name {
   font-size: 0.8rem;
   color: white;
   text-align: left;
-  max-width: 5rem;
 }
 
 .text-decoration-line {
