@@ -26,11 +26,13 @@ const Step = (props: {
   handleFinishEvent: ({
     name,
     type,
-    answer
+    answer,
+    formula
   }: {
     name: string;
     type: string;
     answer: string | undefined;
+    formula: string;
   }) => void;
   handleStopEvent: () => void;
   mainAnimationDuration: number;
@@ -50,7 +52,8 @@ const Step = (props: {
       props.handleFinishEvent({
         name: props.formula.name,
         type: props.formula.type,
-        answer: undefined
+        answer: undefined,
+        formula: props.formula.formula
       });
       console.log("useEffect finish timeout ");
     }, props.mainAnimationDuration);
@@ -66,11 +69,7 @@ const Step = (props: {
       if (state === "zero+") {
         setState(str);
         const result = props.formula.type === str;
-        const answer = {
-          name: props.formula.name,
-          type: props.formula.type,
-          answer: str
-        };
+
         sound(result ? soundsType.TRUE_SHOT : soundsType.FALSE_SHOT);
         if (!result) {
           setTimeout(
@@ -79,7 +78,12 @@ const Step = (props: {
           );
         }
         setTimeout(() => {
-          props.handleFinishEvent(answer);
+          props.handleFinishEvent({
+            name: props.formula.name,
+            type: props.formula.type,
+            answer: str,
+            formula: props.formula.formula
+          });
         }, (props.clickAnimationDuration + 100) * (result ? 1 : 2));
       }
     },
