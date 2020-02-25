@@ -1,6 +1,6 @@
 import React from 'react';
 import { formulaRender } from './ChemicalData';
-import { SvgCloseIcon } from './SvgCloseIcon';
+import { SvgGoBackIcon } from './SvgGoBackIcon';
 type errorRecordType = {
     gradeClass: string;
     formula: string;
@@ -41,10 +41,10 @@ const ErrosScreen = (props: PropsType): JSX.Element => {
 
     return (
         <div className="main3-background-size">
-            <div className="close-icon" onClick={props.handleCloseClick}>
-                <SvgCloseIcon color="black" size="2rem" />
+            <div className="go-back-icon" onClick={props.handleCloseClick}>
+                <SvgGoBackIcon color="black" size="2rem" />
             </div>
-            <div className="font-size-1-5">Ошибки:</div>
+            <div className="display-flex-center font-size-1-5">Ошибки:</div>
             <div className="overflow-scroll">
                 {Object.entries(errors).map(([grade, gradeErrors]) => (
                     <div key={grade} className="font-size-1-5">

@@ -3,7 +3,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { ClassificationButton } from './Button';
 import { sound, soundsType } from './Sounds';
 import { ButtonClickedType, ChemicalType, formulaRender } from './ChemicalData';
-import { SvgCloseIcon } from './SvgCloseIcon';
+import { SvgGoBackIcon } from './SvgGoBackIcon';
 
 type StateType = 'zero' | 'zero+' | 'zero+false' | ButtonClickedType;
 
@@ -145,8 +145,8 @@ const Step = (props: {
             <div className={scoreClass}>{props.score}</div>
 
             <div className={checkNumberClass}>{`${props.stepNumber} / ${props.checksTotal}`}</div>
-            <div className="close-icon" onClick={props.handleStopEvent}>
-                <SvgCloseIcon color="black" size="2rem" />
+            <div className="go-back-icon" onClick={props.handleStopEvent}>
+                <SvgGoBackIcon color="black" size="2rem" />
             </div>
 
             <ClassificationButton

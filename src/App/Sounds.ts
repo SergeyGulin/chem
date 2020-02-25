@@ -17,6 +17,11 @@ const audioPaths: { [key in soundsType]: string } = {
     TRUE_SHOT: process.env.PUBLIC_URL + '/sounds/135510__chriddof__space-bloop.mp3',
 };
 
+let muteModeForAllSounds = '';
+export function setMuteModeForSounds(str: string) {
+    muteModeForAllSounds = str;
+}
+
 // https://stackoverflow.com/questions/47204048/play-multiple-audio-files-on-safari-at-once
 // utility function to load an audio file and resolve it as a decoded audio buffer
 function getBuffer(url: string, audioCtx: AudioContext) {
@@ -56,10 +61,12 @@ Object.entries(audioPaths).forEach(([key, path]) => {
 });
 
 export const sound = (key: soundsType) => {
-    promises[key].then((buffer: any): void => {
-        const source = ctx.createBufferSource();
-        source.buffer = buffer as any;
-        source.connect(ctx.destination);
-        source.start();
-    });
+    if (muteModeForAllSounds === '') {
+        promises[key].then((buffer: any): void => {
+            const source = ctx.createBufferSource();
+            source.buffer = buffer as any;
+            source.connect(ctx.destination);
+            source.start();
+        });
+    }
 };

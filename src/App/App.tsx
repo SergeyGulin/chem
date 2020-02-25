@@ -1,10 +1,10 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useReducer } from 'react';
 import { Button } from './Button';
 import Step from './Step';
 
 import { getButtonNames, formulas, reshuffle, GRADE_CLASS_ARRAY } from './ChemicalData';
 
-import { sound, soundsType } from './Sounds';
+import { sound, soundsType, setMuteModeForSounds } from './Sounds';
 import { BestResultsScreen, getBestResults } from './BestResultsScreen';
 
 import ErrosScreen from './ErrosScreen';
@@ -24,7 +24,10 @@ const FINISH_SCREEN_STATE = -1;
 const BEST_RESULTS_SCREEN_STATE = -2;
 const ERRORS_SCREEN_STATE = -3;
 
+const MUTE_ALL_SOUNDS = 'MUTE_ALL_SOUNDS';
+
 const App: React.FC = () => {
+    const [forceUpdateState, forceUpdate] = useState(false);
     const [{ stepNumber, score, gradeClass }, setStepData] = useState<{
         stepNumber: number;
         score: number;
@@ -139,12 +142,27 @@ const App: React.FC = () => {
         [stepNumber, resufledFormulas.length, gradeClass, score],
     );
 
+    const toggleMuteMode = useCallback(() => {
+        let muteMode = localStorage.getItem(MUTE_ALL_SOUNDS) || '';
+        if (muteMode === '') {
+            muteMode = 'yes';
+        } else {
+            muteMode = '';
+        }
+        setMuteModeForSounds(muteMode);
+        localStorage.setItem(MUTE_ALL_SOUNDS, muteMode);
+        forceUpdate(forceUpdateState === false);
+    }, [forceUpdateState]);
+
     switch (stepNumber) {
         case START_SCREEN_STATE:
+            const muteMode = localStorage.getItem('MUTE_ALL_SOUNDS') || '';
+            setMuteModeForSounds(muteMode);
+
             return (
                 <div className="main main1-background-size">
-                    <div className="close-icon" onClick={() => {}}>
-                        <SvgSpeakerIcon color="black" size="2rem" />
+                    <div className="speaker-icon" onClick={toggleMuteMode}>
+                        <SvgSpeakerIcon color={muteMode ? 'grey' : 'black'} size="2rem" />
                     </div>
                     {GRADE_CLASS_ARRAY.map((grade, index) => (
                         <Button

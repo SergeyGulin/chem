@@ -211,7 +211,7 @@ ul {
 ******************************************************************/
 .score {
     position: absolute;
-    top: 0.2rem;
+    top: 2rem;
     left: calc(100% - var(--formula-width) - 0.2rem);
     color: var(--dark-red-color);
     font-size: 3rem;
@@ -223,7 +223,7 @@ ul {
 ******************************************************************/
 .check-number {
     position: absolute;
-    top: 0.2rem;
+    top: 2rem;
     left: 0rem;
     color: black;
     font-size: 3rem;
@@ -273,13 +273,14 @@ ul {
 }
 
 .font-size-1-5 {
-    padding: 20px 20px;
+    padding: 0.3rem 20px;
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--dark-red-color);
 }
 
 .overflow-scroll {
+    height: calc(100vh - 2.5rem);
     position: relative;
     overflow-y: scroll;
     word-wrap: break-word;
@@ -306,10 +307,18 @@ ul {
     text-decoration: line-through;
 }
 
-.close-icon {
+.speaker-icon {
     position: fixed;
     top: 0;
-    right: 0;
+    right: 0.2rem;
+    height: 2rem;
+    width: 2rem;
+    z-index: 1000;
+}
+.go-back-icon {
+    position: fixed;
+    top: 0.3rem;
+    left: 0;
     height: 2rem;
     width: 2rem;
     z-index: 1000;
