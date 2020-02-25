@@ -54,7 +54,7 @@ const ErrosScreen: React.FC = () => {
               <tbody>
                 {gradeErrors.map(
                   ({ gradeClass, formula, name, type, answer }) => (
-                    <tr>
+                    <tr key={formula}>
                       <td className="error-formula">
                         {formulaRender(formula)}
                       </td>
