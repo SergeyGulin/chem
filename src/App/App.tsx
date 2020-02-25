@@ -161,8 +161,11 @@ const App: React.FC = () => {
 
             return (
                 <div className="main main1-background-size">
-                    <div className="speaker-icon" onClick={toggleMuteMode}>
-                        <SvgSpeakerIcon color={muteMode ? 'grey' : 'black'} size="2rem" />
+                    <div
+                        className={`speaker-icon ${muteMode ? 'speaker-icon-mute' : ''}`}
+                        onClick={toggleMuteMode}
+                    >
+                        <SvgSpeakerIcon color={'black'} size="2rem" />
                     </div>
                     {GRADE_CLASS_ARRAY.map((grade, index) => (
                         <Button
