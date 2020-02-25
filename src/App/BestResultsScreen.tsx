@@ -1,40 +1,43 @@
-import React from "react";
+import React from 'react';
 
-import { GRADE_CLASS_ARRAY } from "./ChemicalData";
+import { GRADE_CLASS_ARRAY } from './ChemicalData';
+import { SvgCloseIcon } from './SvgCloseIcon';
 
 export type scoreType = {
-  date: number;
-  score: number;
+    date: number;
+    score: number;
 };
 export const getBestResults = (key: string): scoreType[] =>
-  JSON.parse(localStorage.getItem(key) || "[]");
+    JSON.parse(localStorage.getItem(key) || '[]');
 
-export const BestResultsScreen = (): JSX.Element => {
-  return (
-    <div className="main main2-background-size">
-      <div className="display-flex-center">
-        <div>
-          <div className="display-flex-center font-size-1-5">
-            Лучшие результаты:
-          </div>
-          {GRADE_CLASS_ARRAY.map((grade, index) => (
-            <div key={grade} className="font-size-1-5">
-              <div>{grade}</div>
-              {getBestResults(GRADE_CLASS_ARRAY[index]).map(
-                (record: scoreType) => (
-                  <div className="display-flex" key={record.date}>
-                    <div className="record-score">{record.score}</div>
-                    <div className="record-date">
-                      {new Date(record.date).toLocaleDateString()}{" "}
-                      {new Date(record.date).toLocaleTimeString()}
-                    </div>
-                  </div>
-                )
-              )}
+type PropsType = {
+    handleCloseClick: () => void;
+};
+export const BestResultsScreen = (props: PropsType) => {
+    return (
+        <div className="main main2-background-size">
+            <div className="close-icon" onClick={props.handleCloseClick}>
+                <SvgCloseIcon color="black" size="2rem" />
             </div>
-          ))}
+            <div className="display-flex-center">
+                <div>
+                    <div className="display-flex-center font-size-1-5">Лучшие результаты:</div>
+                    {GRADE_CLASS_ARRAY.map((grade, index) => (
+                        <div key={grade} className="font-size-1-5">
+                            <div>{grade}</div>
+                            {getBestResults(GRADE_CLASS_ARRAY[index]).map((record: scoreType) => (
+                                <div className="display-flex" key={record.date}>
+                                    <div className="record-score">{record.score}</div>
+                                    <div className="record-date">
+                                        {new Date(record.date).toLocaleDateString()}{' '}
+                                        {new Date(record.date).toLocaleTimeString()}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    ))}
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 };

@@ -1,24 +1,22 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+        'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 :root {
-  --formula-width: 8rem;
+    --formula-width: 8rem;
 
-  --dark-red-color: maroon;
+    --dark-red-color: maroon;
 
-  --easing-function-false: cubic-bezier(0.6, -0.28, 0.735, 0.045);
-  --easing-function-true: ease;
+    --easing-function-false: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    --easing-function-true: ease;
 }
 
 /* @media (orientation: landscape) {
@@ -28,45 +26,46 @@ code {
 } */
 
 ul {
-  list-style: none;
+    list-style: none;
 }
 
 .main {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  overflow: hidden;
-  text-size-adjust: none;
-  /* background: linear-gradient(to top left, #409ae6, #205eb1); */
-  background: #a7a9ac;
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    color-stop(0.34, rgba(230, 237, 241, 0.1)),
-    color-stop(0.67, rgba(230, 237, 241, 0))
-  );
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    text-size-adjust: none;
+    /* background: linear-gradient(to top left, #409ae6, #205eb1); */
+    background: #a7a9ac;
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        color-stop(0.34, rgba(230, 237, 241, 0.1)),
+        color-stop(0.67, rgba(230, 237, 241, 0))
+    );
 }
 
 .main1-background-size {
-  background-size: 17px 17px;
+    background-size: 17px 17px;
 }
 
 .main2-background-size {
-  background-size: 7px 7px;
+    background-size: 7px 7px;
 }
 .main3-background-size {
-  background-size: 3px 3px;
-  background: #a7a9ac;
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    color-stop(0.34, rgba(230, 237, 241, 0.1)),
-    color-stop(0.67, rgba(230, 237, 241, 0))
-  );
+    position: relative;
+    background-size: 3px 3px;
+    background: #a7a9ac;
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        color-stop(0.34, rgba(230, 237, 241, 0.1)),
+        color-stop(0.67, rgba(230, 237, 241, 0))
+    );
 }
 
 /* формула химического вещества и копки с названием классов веществ
@@ -74,236 +73,244 @@ ul {
 
 .formulaView,
 .buttonView {
-  width: var(--formula-width);
-  text-align: center;
-  /* background-color: white; */
-  background: linear-gradient(to top, #bbbbbb, white);
+    width: var(--formula-width);
+    text-align: center;
+    /* background-color: white; */
+    background: linear-gradient(to top, #bbbbbb, white);
 
-  box-shadow: 0px 3px rgba(128, 128, 128, 1),
-    /* gradient effects */ 0px 4px rgba(118, 118, 118, 1),
-    0px 5px rgba(108, 108, 108, 1), 0px 6px rgba(98, 98, 98, 1),
-    0px 7px rgba(88, 88, 88, 1), 0px 8px rgba(78, 78, 78, 1),
-    0px 14px 6px -1px rgba(128, 128, 128, 1); /* shadow */
+    box-shadow: 0px 3px rgba(128, 128, 128, 1),
+        /* gradient effects */ 0px 4px rgba(118, 118, 118, 1), 0px 5px rgba(108, 108, 108, 1),
+        0px 6px rgba(98, 98, 98, 1), 0px 7px rgba(88, 88, 88, 1), 0px 8px rgba(78, 78, 78, 1),
+        0px 14px 6px -1px rgba(128, 128, 128, 1); /* shadow */
 
-  /* box-shadow: -0.5em 0 0.5em black; */
-  font-weight: 600;
-  padding: 0.5rem 0;
-  border: none;
-  border-radius: 0.5rem;
-  font-size: 1rem;
+    /* box-shadow: -0.5em 0 0.5em black; */
+    font-weight: 600;
+    padding: 0.5rem 0;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
 }
 
 .formulaView {
-  color: black;
-  cursor: help;
+    color: black;
+    cursor: help;
 }
 
 .buttonView {
-  color: var(--dark-red-color);
-  cursor: pointer;
+    color: var(--dark-red-color);
+    cursor: pointer;
 }
 
 /* Начальная позиция падения
 ******************************************************************/
 
 .startPosition {
-  position: absolute;
-  top: 0;
-  left: calc(50% - var(--formula-width) / 2 - 0.3rem);
+    position: absolute;
+    top: 0;
+    left: calc(50% - var(--formula-width) / 2 - 0.3rem);
 }
 
 /* Конечная позиция падения
 ******************************************************************/
 
 .endPosition {
-  position: absolute;
-  top: 100%;
-  left: calc(50% - var(--formula-width) / 2 - 0.3rem);
+    position: absolute;
+    top: 100%;
+    left: calc(50% - var(--formula-width) / 2 - 0.3rem);
 
-  /* transition: top 10s cubic-bezier(0.29, 1.01, 1, -0.68),
+    /* transition: top 10s cubic-bezier(0.29, 1.01, 1, -0.68),
     left 10s cubic-bezier(0.29, 1.01, 1, -0.68); */
 }
 
 /* Transition падения
 ******************************************************************/
 .endPositionTransition {
-  transition: top var(--main-animation-duration) linear,
-    left var(--main-animation-duration) linear;
+    transition: top var(--main-animation-duration) linear,
+        left var(--main-animation-duration) linear;
 }
 
 /* Helper
 ******************************************************************/
 .scale1-1 {
-  transform: scale(1, 1) !important;
+    transform: scale(1, 1) !important;
 }
 
 /* Координаты кнопок  для каждого вещества и их анимации
 ******************************************************************/
 .buttonPosition1 {
-  position: absolute;
-  top: calc(100% - 4rem);
-  left: 0.8rem;
+    position: absolute;
+    top: calc(100% - 4rem);
+    left: 0.8rem;
 }
 
 .buttonPosition2 {
-  position: absolute;
-  top: calc(100% - 4rem);
-  left: calc(100% - var(--formula-width) - 0.8rem);
+    position: absolute;
+    top: calc(100% - 4rem);
+    left: calc(100% - var(--formula-width) - 0.8rem);
 }
 .buttonPosition3 {
-  position: absolute;
-  top: calc(100% - 8rem);
-  left: 0.8rem;
+    position: absolute;
+    top: calc(100% - 8rem);
+    left: 0.8rem;
 }
 
 .buttonPosition4 {
-  position: absolute;
-  top: calc(100% - 8rem);
-  left: calc(100% - var(--formula-width) - 0.8rem);
+    position: absolute;
+    top: calc(100% - 8rem);
+    left: calc(100% - var(--formula-width) - 0.8rem);
 }
 
 .buttonPositionPlay1,
 .buttonPositionPlay2,
 .buttonPositionPlay3 {
-  position: absolute;
-  left: calc(50% - var(--formula-width) / 2 - 0.3rem);
+    position: absolute;
+    left: calc(50% - var(--formula-width) / 2 - 0.3rem);
 }
 
 .buttonPositionPlay1 {
-  top: calc(10%);
+    top: calc(10%);
 }
 .buttonPositionPlay2 {
-  top: calc(25%);
+    top: calc(25%);
 }
 .buttonPositionPlay3 {
-  top: calc(40%);
+    top: calc(40%);
 }
 
 .buttonPositionShowRecords {
-  position: absolute;
-  top: calc(55%);
-  left: calc(50% - var(--formula-width) / 2 - 0.3rem);
+    position: absolute;
+    top: calc(55%);
+    left: calc(50% - var(--formula-width) / 2 - 0.3rem);
 }
 
 .buttonPositionShowWrongShots {
-  position: absolute;
-  top: calc(70%);
-  left: calc(50% - var(--formula-width) / 2 - 0.3rem);
+    position: absolute;
+    top: calc(70%);
+    left: calc(50% - var(--formula-width) / 2 - 0.3rem);
 }
 
 /* Transition успешного нажатия кнопки
 ******************************************************************/
 .transition-true {
-  transform: scale(0.5, 0.5);
-  transition: top var(--click-animation-duration) var(--easing-function-true),
-    left var(--click-animation-duration) var(--easing-function-true),
-    transform var(--click-animation-duration) var(--easing-function-true);
+    transform: scale(0.5, 0.5);
+    transition: top var(--click-animation-duration) var(--easing-function-true),
+        left var(--click-animation-duration) var(--easing-function-true),
+        transform var(--click-animation-duration) var(--easing-function-true);
 }
 
 /* Transition ошибочного нажатия кнопки
 ******************************************************************/
 .transition-false {
-  transform: scale(0.5, 0.5);
-  transition: top var(--click-animation-duration) var(--easing-function-false),
-    left var(--click-animation-duration) var(--easing-function-false),
-    transform var(--click-animation-duration) var(--easing-function-false);
+    transform: scale(0.5, 0.5);
+    transition: top var(--click-animation-duration) var(--easing-function-false),
+        left var(--click-animation-duration) var(--easing-function-false),
+        transform var(--click-animation-duration) var(--easing-function-false);
 }
 
 /* Score info
 ******************************************************************/
 .score {
-  position: absolute;
-  top: 0.2rem;
-  left: calc(100% - var(--formula-width) - 0.2rem);
-  color: var(--dark-red-color);
-  font-size: 3rem;
-  width: var(--formula-width);
-  text-align: center;
+    position: absolute;
+    top: 0.2rem;
+    left: calc(100% - var(--formula-width) - 0.2rem);
+    color: var(--dark-red-color);
+    font-size: 3rem;
+    width: var(--formula-width);
+    text-align: center;
 }
 
 /* Check info
 ******************************************************************/
 .check-number {
-  position: absolute;
-  top: 0.2rem;
-  left: 0rem;
-  color: black;
-  font-size: 3rem;
-  text-align: center;
+    position: absolute;
+    top: 0.2rem;
+    left: 0rem;
+    color: black;
+    font-size: 3rem;
+    text-align: center;
 }
 
 /* Formula hint
 ******************************************************************/
 .formula-hint {
-  font-size: 0.8rem;
-  color: var(--dark-red-color);
+    font-size: 0.8rem;
+    color: var(--dark-red-color);
 }
 
 .result {
-  color: black;
-  font-size: 3rem;
-  font-weight: 600;
-  text-align: center;
+    color: black;
+    font-size: 3rem;
+    font-weight: 600;
+    text-align: center;
 }
 
 .record-score {
-  color: var(--dark-red-color);
-  font-size: 1rem;
-  font-weight: 600;
-  width: 3rem;
-  padding: 0.2rem 1rem 0.2rem 0;
-  text-align: right;
+    color: var(--dark-red-color);
+    font-size: 1rem;
+    font-weight: 600;
+    width: 3rem;
+    padding: 0.2rem 1rem 0.2rem 0;
+    text-align: right;
 }
 
 .record-date {
-  color: white;
-  font-size: 1rem;
-  font-weight: 600;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 .display-flex {
-  display: flex;
-  justify-content: right;
-  align-items: center;
-  padding: 0.4rem 0;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding: 0.4rem 0;
 }
 
 .display-flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .font-size-1-5 {
-  padding: 20px 20px;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--dark-red-color);
+    padding: 20px 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--dark-red-color);
 }
 
 .overflow-scroll {
-  position: relative;
-  overflow-y: scroll;
-  word-wrap: break-word;
+    position: relative;
+    overflow-y: scroll;
+    word-wrap: break-word;
 }
 
 .error-header {
-  font-size: 0.8rem;
-  color: black;
-  padding-bottom: 0.6rem;
+    font-size: 0.8rem;
+    color: black;
+    padding-bottom: 0.6rem;
 }
 .error-formula {
-  font-size: 0.8rem;
-  color: var(--dark-red-color);
-  padding-bottom: 0.6rem;
+    font-size: 0.8rem;
+    color: var(--dark-red-color);
+    padding-bottom: 0.6rem;
 }
 
 .error-name {
-  font-size: 0.8rem;
-  color: white;
-  text-align: left;
+    font-size: 0.8rem;
+    color: white;
+    text-align: left;
 }
 
 .text-decoration-line {
-  text-decoration: line-through;
+    text-decoration: line-through;
+}
+
+.close-icon {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 2rem;
+    width: 2rem;
+    z-index: 1000;
 }
