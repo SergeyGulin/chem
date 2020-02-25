@@ -8,6 +8,7 @@ import { sound, soundsType } from './Sounds';
 import { BestResultsScreen, getBestResults } from './BestResultsScreen';
 
 import ErrosScreen from './ErrosScreen';
+import { SvgSpeakerIcon } from './SvgSpeakerIcon';
 
 // import { convert } from "./util";
 // convert();
@@ -142,6 +143,9 @@ const App: React.FC = () => {
         case START_SCREEN_STATE:
             return (
                 <div className="main main1-background-size">
+                    <div className="close-icon" onClick={() => {}}>
+                        <SvgSpeakerIcon color="black" size="2rem" />
+                    </div>
                     {GRADE_CLASS_ARRAY.map((grade, index) => (
                         <Button
                             key={grade}
@@ -236,13 +240,14 @@ const App: React.FC = () => {
                     clickAnimationDuration={CLICK_ANIMATION_DURATION}
                     formula={resufledFormulas[stepNumber - 1]}
                     handleFinishEvent={handleFinishEvent}
-                    handleStopEvent={() =>
+                    handleStopEvent={() => {
                         setStepData({
                             stepNumber: START_SCREEN_STATE,
                             score: 0,
                             gradeClass,
-                        })
-                    }
+                        });
+                        sound(soundsType.ERROR_RESULTS);
+                    }}
                     mainAnimationDuration={MAIN_ANIMATION_DURATION}
                     score={score}
                 />

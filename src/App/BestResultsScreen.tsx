@@ -13,7 +13,7 @@ export const getBestResults = (key: string): scoreType[] =>
 type PropsType = {
     handleCloseClick: () => void;
 };
-export const BestResultsScreen = (props: PropsType) => {
+export const BestResultsScreen = (props: PropsType): JSX.Element => {
     return (
         <div className="main main2-background-size">
             <div className="close-icon" onClick={props.handleCloseClick}>

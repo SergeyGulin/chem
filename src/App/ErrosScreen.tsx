@@ -14,7 +14,7 @@ type PropsType = {
     handleCloseClick: () => void;
 };
 
-const ErrosScreen = (props: PropsType) => {
+const ErrosScreen = (props: PropsType): JSX.Element => {
     const errors: { [gradeClass: string]: errorRecordType[] } = {};
     Object.entries(localStorage).forEach(([key, value]) => {
         const params = key.split('|');
@@ -61,7 +61,7 @@ const ErrosScreen = (props: PropsType) => {
 
                             <tbody>
                                 {gradeErrors.map(({ gradeClass, formula, name, type, answer }) => (
-                                    <tr key={formula}>
+                                    <tr key={`${formula}/${answer}`}>
                                         <td className="error-formula">{formulaRender(formula)}</td>
                                         <td className="error-name">{name}</td>
                                         <td className="error-formula text-decoration-line">
