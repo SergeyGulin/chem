@@ -94,6 +94,7 @@ const App: React.FC = () => {
             console.log('handleFinishEvent name = ', name);
             console.log('handleFinishEvent type = ', type);
             console.log('handleFinishEvent answer = ', answer);
+
             const errorKey = `error|${gradeClass}|${formula}|${name}|${type}|${answer}`;
             const localArr = (localStorage.getItem(errorKey) || `0|0`).split('|');
             const count = parseInt(localArr[0], 10);
@@ -177,13 +178,14 @@ const App: React.FC = () => {
                                 ? 'buttonPositionShowWrongShots transition-true'
                                 : 'startPosition'
                         }
-                        handleClick={() =>
+                        handleClick={() => {
                             setStepData({
                                 stepNumber: ERRORS_SCREEN_STATE,
                                 score: 0,
                                 gradeClass,
-                            })
-                        }
+                            });
+                            sound(soundsType.ERROR_RESULTS);
+                        }}
                     />
                 </div>
             );
