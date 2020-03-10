@@ -16,7 +16,7 @@ import { SvgSpeakerIcon } from './SvgSpeakerIcon';
 const MAIN_ANIMATION_DURATION = 10000;
 const CLICK_ANIMATION_DURATION = 1000;
 
-const CHECKS_TOTAL = 10;
+const CHECKS_TOTAL = 20;
 const RECORDS_TOTAL = 5;
 
 const START_SCREEN_STATE = 0;
