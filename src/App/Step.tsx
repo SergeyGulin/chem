@@ -16,6 +16,11 @@ const buttons = {
     Амфотерный: 'buttonPosition2',
     Кислотный: 'buttonPosition3',
     Несолеобразующий: 'buttonPosition4',
+
+    Основания: 'buttonPosition1',
+    Амфотерные: 'buttonPosition2',
+    Кислоты: 'buttonPosition3',
+    Другое: 'buttonPosition4',
 };
 
 const Step = (props: {

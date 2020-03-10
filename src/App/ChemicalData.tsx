@@ -9,6 +9,9 @@ export type ButtonClickedType =
     | 'Амфотерный'
     | 'Кислотный'
     | 'Несолеобразующий'
+    | 'Основания'
+    | 'Амфотерные'
+    | 'Кислоты'
     | 'Другое';
 
 export const getButtonNames = (grade: string): ButtonClickedType[] => {
@@ -18,7 +21,7 @@ export const getButtonNames = (grade: string): ButtonClickedType[] => {
         case 'Оксиды':
             return ['Основной', 'Амфотерный', 'Кислотный', 'Несолеобразующий'];
         case 'Гидроксиды':
-            return ['Основание', 'Амфотерный', 'Кислота', 'Другое'];
+            return ['Основания', 'Амфотерные', 'Кислоты', 'Другое'];
         default:
             throw new Error('Unknown grade = ' + grade);
     }
@@ -828,83 +831,83 @@ export const formulas: { [key: string]: ChemicalType[] } = {
         {
             name: 'гидроксид алюминия',
             text: '',
-            type: 'Амфотерный',
+            type: 'Амфотерные',
             formula: 'Al(OH)3',
         },
         {
             name: 'гидроксид цинка',
             text: '',
 
-            type: 'Амфотерный',
+            type: 'Амфотерные',
             formula: 'Zn(OH)2',
         },
         {
             name: 'гидроксид бериллия',
             text: '',
 
-            type: 'Амфотерный',
+            type: 'Амфотерные',
             formula: 'Be(OH)2',
         },
         {
             name: 'гидроксид хрома(III)',
             text: '',
 
-            type: 'Амфотерный',
+            type: 'Амфотерные',
             formula: 'Cr(OH)3',
         },
         {
             name: 'гидроксид марганца (IV)',
             text: '',
 
-            type: 'Амфотерный',
+            type: 'Амфотерные',
             formula: 'Mn(OH)4',
         },
         {
             name: 'гидроксид cвинца (IV)',
             text: '',
 
-            type: 'Амфотерный',
+            type: 'Амфотерные',
             formula: 'Pb(OH)4',
         },
         {
             name: 'гидроксид марганца (II)',
             text: '',
 
-            type: 'Амфотерный',
+            type: 'Амфотерные',
             formula: 'Mn(OH)2',
         },
         // ***************************************************************
-        { name: '', text: '', type: 'Основание', formula: 'LiOH' },
-        { name: '', text: '', type: 'Основание', formula: 'NaOH' },
-        { name: '', text: '', type: 'Основание', formula: 'KOH' },
-        { name: '', text: '', type: 'Основание', formula: 'RbOH' },
-        { name: '', text: '', type: 'Основание', formula: 'LiOH' },
-        { name: '', text: '', type: 'Основание', formula: 'CsOH' },
-        { name: '', text: '', type: 'Основание', formula: 'CuOH' },
-        { name: '', text: '', type: 'Основание', formula: 'Ca(OH)2' },
-        { name: '', text: '', type: 'Основание', formula: 'Cu(OH)2' },
-        { name: '', text: '', type: 'Основание', formula: 'Fe(OH)2' },
-        { name: '', text: '', type: 'Основание', formula: 'Ba(OH)2' },
-        { name: '', text: '', type: 'Основание', formula: 'Co(OH)2' },
-        { name: '', text: '', type: 'Основание', formula: 'Ni(OH)2' },
-        { name: '', text: '', type: 'Основание', formula: 'Pb(OH)2' },
-        { name: '', text: '', type: 'Основание', formula: 'Mn(OH)2' },
+        { name: '', text: '', type: 'Основания', formula: 'LiOH' },
+        { name: '', text: '', type: 'Основания', formula: 'NaOH' },
+        { name: '', text: '', type: 'Основания', formula: 'KOH' },
+        { name: '', text: '', type: 'Основания', formula: 'RbOH' },
+        { name: '', text: '', type: 'Основания', formula: 'LiOH' },
+        { name: '', text: '', type: 'Основания', formula: 'CsOH' },
+        { name: '', text: '', type: 'Основания', formula: 'CuOH' },
+        { name: '', text: '', type: 'Основания', formula: 'Ca(OH)2' },
+        { name: '', text: '', type: 'Основания', formula: 'Cu(OH)2' },
+        { name: '', text: '', type: 'Основания', formula: 'Fe(OH)2' },
+        { name: '', text: '', type: 'Основания', formula: 'Ba(OH)2' },
+        { name: '', text: '', type: 'Основания', formula: 'Co(OH)2' },
+        { name: '', text: '', type: 'Основания', formula: 'Ni(OH)2' },
+        { name: '', text: '', type: 'Основания', formula: 'Pb(OH)2' },
+        { name: '', text: '', type: 'Основания', formula: 'Mn(OH)2' },
 
         // ***************************************************************
 
-        { name: 'азотная', text: '', type: 'Кислота', formula: 'HNO3' },
-        { name: 'азотистая кислота', text: '', type: 'Кислота', formula: 'НNO2' },
-        { name: 'борная (ортоборная кислота)', text: '', type: 'Кислота', formula: 'Н3ВО3' },
-        { name: 'уксусная кислота', text: '', type: 'Кислота', formula: 'СН3СООН' },
-        { name: 'муравьиная кислота', text: '', type: 'Кислота', formula: 'НСООН' },
-        { name: 'серная', text: '', type: 'Кислота', formula: 'H2SO4' },
-        { name: 'дихромовая кислота', text: '', type: 'Кислота', formula: 'Н2Сr2O7' },
-        { name: 'сернистая', text: '', type: 'Кислота', formula: 'H2SO3' },
-        { name: 'хлорноватистая кислота', text: '', type: 'Кислота', formula: 'НСlO' },
-        { name: 'хлорноватая кислота', text: '', type: 'Кислота', formula: 'HClO3' },
-        { name: 'мышьяковая кислота', text: '', type: 'Кислота', formula: 'H3AsO4' },
-        { name: 'угольная', text: '', type: 'Кислота', formula: 'H2CO3' },
-        { name: 'селеновая кислота', text: '', type: 'Кислота', formula: 'H2SеO4' },
+        { name: 'азотная', text: '', type: 'Кислоты', formula: 'HNO3' },
+        { name: 'азотистая кислота', text: '', type: 'Кислоты', formula: 'НNO2' },
+        { name: 'борная (ортоборная кислота)', text: '', type: 'Кислоты', formula: 'Н3ВО3' },
+        { name: 'уксусная кислота', text: '', type: 'Кислоты', formula: 'СН3СООН' },
+        { name: 'муравьиная кислота', text: '', type: 'Кислоты', formula: 'НСООН' },
+        { name: 'серная', text: '', type: 'Кислоты', formula: 'H2SO4' },
+        { name: 'дихромовая кислота', text: '', type: 'Кислоты', formula: 'Н2Сr2O7' },
+        { name: 'сернистая', text: '', type: 'Кислоты', formula: 'H2SO3' },
+        { name: 'хлорноватистая кислота', text: '', type: 'Кислоты', formula: 'НСlO' },
+        { name: 'хлорноватая кислота', text: '', type: 'Кислоты', formula: 'HClO3' },
+        { name: 'мышьяковая кислота', text: '', type: 'Кислоты', formula: 'H3AsO4' },
+        { name: 'угольная', text: '', type: 'Кислоты', formula: 'H2CO3' },
+        { name: 'селеновая кислота', text: '', type: 'Кислоты', formula: 'H2SеO4' },
         // ***************************************************************
 
         { name: 'Карбонат кальция - Известняк', text: '', type: 'Другое', formula: 'CaCO3' },
