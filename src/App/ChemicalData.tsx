@@ -12,7 +12,11 @@ export type ButtonClickedType =
     | 'Основания'
     | 'Амфотерные'
     | 'Кислоты'
-    | 'Другое';
+    | 'Другое'
+    | 'По катиону'
+    | 'По аниону'
+    | 'Не гидролизируется'
+    | 'И по катиону, и по аниону';
 
 export const getButtonNames = (grade: string): ButtonClickedType[] => {
     switch (grade) {
@@ -22,6 +26,9 @@ export const getButtonNames = (grade: string): ButtonClickedType[] => {
             return ['Основной', 'Амфотерный', 'Кислотный', 'Несолеобразующий'];
         case 'Гидроксиды':
             return ['Основания', 'Амфотерные', 'Кислоты', 'Другое'];
+        case 'Гидролиз':
+            return ['По катиону', 'По аниону', 'Не гидролизируется', 'И по катиону, и по аниону'];
+
         default:
             throw new Error('Unknown grade = ' + grade);
     }
@@ -37,7 +44,7 @@ export type ChemicalType = {
 export function reshuffle<T>(arr: T[]): T[] {
     const arr1 = arr.map((item: T): [number, T] => [Math.random(), item]);
     arr1.sort((a, b) => a[0] - b[0]);
-    return arr1.map(pair => pair[1]);
+    return arr1.map((pair) => pair[1]);
 }
 
 export const formulas: { [key: string]: ChemicalType[] } = {
@@ -930,6 +937,14 @@ export const formulas: { [key: string]: ChemicalType[] } = {
         { name: 'хлорид меди (II)', text: '', type: 'Другое', formula: 'CuCl2' },
         { name: 'карбонат калия', text: '', type: 'Другое', formula: 'К2CO3' },
         // ***************************************************************
+    ],
+    Гидролиз: [
+        {
+            name: 'гидроксид алюминия',
+            text: '',
+            type: 'Амфотерные',
+            formula: 'Al(OH)3',
+        },
     ],
 };
 

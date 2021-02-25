@@ -162,30 +162,34 @@ ul {
 
 .buttonPositionPlay1,
 .buttonPositionPlay2,
-.buttonPositionPlay3 {
+.buttonPositionPlay3,
+.buttonPositionPlay4 {
     position: absolute;
     left: calc(50% - var(--formula-width) / 2 - 0.3rem);
 }
 
 .buttonPositionPlay1 {
-    top: calc(10%);
+    top: calc(15%);
 }
 .buttonPositionPlay2 {
     top: calc(25%);
 }
 .buttonPositionPlay3 {
-    top: calc(40%);
+    top: calc(35%);
+}
+.buttonPositionPlay4 {
+    top: calc(45%);
 }
 
 .buttonPositionShowRecords {
     position: absolute;
-    top: calc(55%);
+    top: calc(60%);
     left: calc(50% - var(--formula-width) / 2 - 0.3rem);
 }
 
 .buttonPositionShowWrongShots {
     position: absolute;
-    top: calc(70%);
+    top: calc(73%);
     left: calc(50% - var(--formula-width) / 2 - 0.3rem);
 }
 

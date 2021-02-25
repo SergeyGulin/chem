@@ -21,6 +21,11 @@ const buttons = {
     Амфотерные: 'buttonPosition2',
     Кислоты: 'buttonPosition3',
     Другое: 'buttonPosition4',
+
+    'По катиону': 'buttonPosition1',
+    'По аниону': 'buttonPosition2',
+    'Не гидролизируется': 'buttonPosition3',
+    'И по катиону, и по аниону': 'buttonPosition4',
 };
 
 const Step = (props: {
