@@ -15,7 +15,7 @@ export type ButtonClickedType =
     | 'Другое'
     | 'По катиону'
     | 'По аниону'
-    | 'Не гидролизируется'
+    | 'Гидролиз не возможен'
     | 'И по катиону, и по аниону';
 
 export const getButtonNames = (grade: string): ButtonClickedType[] => {
@@ -27,7 +27,7 @@ export const getButtonNames = (grade: string): ButtonClickedType[] => {
         case 'Гидроксиды':
             return ['Основания', 'Амфотерные', 'Кислоты', 'Другое'];
         case 'Гидролиз':
-            return ['По катиону', 'По аниону', 'Не гидролизируется', 'И по катиону, и по аниону'];
+            return ['По катиону', 'По аниону', 'Гидролиз не возможен', 'И по катиону, и по аниону'];
 
         default:
             throw new Error('Unknown grade = ' + grade);

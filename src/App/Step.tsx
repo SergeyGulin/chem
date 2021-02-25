@@ -24,7 +24,7 @@ const buttons = {
 
     'По катиону': 'buttonPosition1',
     'По аниону': 'buttonPosition2',
-    'Не гидролизируется': 'buttonPosition3',
+    'Гидролиз не возможен': 'buttonPosition3',
     'И по катиону, и по аниону': 'buttonPosition4',
 };
 
