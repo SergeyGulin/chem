@@ -47,6 +47,9 @@ export function reshuffle<T>(arr: T[]): T[] {
     return arr1.map((pair) => pair[1]);
 }
 
+// export function reshuffle<T>(arr: T[]): T[] { return arr;}
+
+
 export const formulas: { [key: string]: ChemicalType[] } = {
     Вещества: [
         {
@@ -939,12 +942,60 @@ export const formulas: { [key: string]: ChemicalType[] } = {
         // ***************************************************************
     ],
     Гидролиз: [
-        {
-            name: 'гидроксид алюминия',
-            text: '',
-            type: 'Амфотерные',
-            formula: 'Al(OH)3',
-        },
+        { name: '', text: '', type: 'По катиону', formula: 'FeCl3' },
+        { name: '', text: '', type: 'По катиону', formula: 'CuSO4' },
+        { name: '', text: '', type: 'По катиону', formula: 'Zn(NO3)2' },
+        { name: '', text: '', type: 'По катиону', formula: 'NiCl2' },
+        { name: '', text: '', type: 'По катиону', formula: 'MgSO4' },
+        { name: '', text: '', type: 'По катиону', formula: 'NH4Cl' },
+        { name: '', text: '', type: 'По катиону', formula: 'Fe(NO3)3' },
+        { name: '', text: '', type: 'По катиону', formula: 'Al2(SO4)3' },
+        { name: '', text: '', type: 'По катиону', formula: 'ZnBr2' },
+        { name: '', text: '', type: 'По катиону', formula: '(NH4)2SO4' },
+        { name: '', text: '', type: 'По катиону', formula: 'NH4H2PO4' },
+        { name: '', text: '', type: 'По катиону', formula: 'BeSO4' },
+        //
+        { name: '', text: '', type: 'По аниону', formula: 'K2CO3' },
+        { name: '', text: '', type: 'По аниону', formula: 'NaHCO3' },
+        { name: '', text: '', type: 'По аниону', formula: '(CH3COO)2Ca' },
+        { name: '', text: '', type: 'По аниону', formula: 'Na2S' },
+        { name: '', text: '', type: 'По аниону', formula: 'LiHSO3' },
+        { name: '', text: '', type: 'По аниону', formula: 'K2SO3' },
+        { name: '', text: '', type: 'По аниону', formula: 'NaF' },
+        { name: '', text: '', type: 'По аниону', formula: 'K2SiO3' },
+        { name: '', text: '', type: 'По аниону', formula: 'Li2S' },
+        { name: '', text: '', type: 'По аниону', formula: 'KCN' },
+        { name: '', text: '', type: 'По аниону', formula: 'Ba(HCO3)2' },
+        { name: '', text: '', type: 'По аниону', formula: 'NaNO2' },
+//
+        { name: '', text: '', type: 'Гидролиз не возможен', formula: 'RbCl' },
+        { name: '', text: '', type: 'Гидролиз не возможен', formula: 'BaSO4' },
+        { name: '', text: '', type: 'Гидролиз не возможен', formula: 'KMnO4' },
+        { name: '', text: '', type: 'Гидролиз не возможен', formula: 'CaCO3' },
+        { name: '', text: '', type: 'Гидролиз не возможен', formula: 'K2SO4' },
+        { name: '', text: '', type: 'Гидролиз не возможен', formula: 'NaHSO4' },
+        { name: '', text: '', type: 'Гидролиз не возможен', formula: 'CaSO3' },
+        { name: '', text: '', type: 'Гидролиз не возможен', formula: 'Ba(NO3)2' },
+        { name: '', text: '', type: 'Гидролиз не возможен', formula: 'CsBr' },
+        { name: '', text: '', type: 'Гидролиз не возможен', formula: 'NaClO4' },
+        { name: '', text: '', type: 'Гидролиз не возможен', formula: 'KJ' },
+        { name: '', text: '', type: 'Гидролиз не возможен', formula: 'PbS' },
+        { name: '', text: '', type: 'Гидролиз не возможен', formula: 'KH2PO4' },
+        { name: '', text: '', type: 'Гидролиз не возможен', formula: 'K2Cr2O7' },
+        { name: '', text: '', type: 'Гидролиз не возможен', formula: 'LiNO3' },
+
+        //
+        { name: '', text: '', type: 'И по катиону, и по аниону', formula: 'NH4HS' },
+        { name: '', text: '', type: 'И по катиону, и по аниону', formula: 'NaHF2' },
+        { name: '', text: '', type: 'И по катиону, и по аниону', formula: 'Al2S3' },
+        { name: '', text: '', type: 'И по катиону, и по аниону', formula: '(NH4)2CO3' },
+        { name: '', text: '', type: 'И по катиону, и по аниону', formula: 'NH4HCO3' },
+        { name: '', text: '', type: 'И по катиону, и по аниону', formula: 'CH3COONH4' },
+        { name: '', text: '', type: 'И по катиону, и по аниону', formula: '(NH4)3PO4' },
+        { name: '', text: '', type: 'И по катиону, и по аниону', formula: '(NH4)2HPO4' },
+        { name: '', text: '', type: 'И по катиону, и по аниону', formula: '(NH4)2S' },
+        { name: '', text: '', type: 'И по катиону, и по аниону', formula: '(CH3COO)3Al' },
+
     ],
 };
 
