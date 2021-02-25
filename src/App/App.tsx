@@ -170,7 +170,7 @@ const App: React.FC = () => {
                     {GRADE_CLASS_ARRAY.map((grade, index) => (
                         <Button
                             key={grade}
-                            name={`Начать игру "${grade}"`}
+                            name={`"${grade}"`}
                             className={
                                 animationStep
                                     ? `buttonPositionPlay${index + 1} transition-true`
