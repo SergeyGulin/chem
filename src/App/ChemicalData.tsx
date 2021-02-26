@@ -18,22 +18,6 @@ export type ButtonClickedType =
     | 'Гидролиз не возможен'
     | 'И по катиону, и по аниону';
 
-export const getButtonNames = (grade: string): ButtonClickedType[] => {
-    switch (grade) {
-        case 'Вещества':
-            return ['Кислота', 'Соль', 'Основание', 'Оксид'];
-        case 'Оксиды':
-            return ['Основной', 'Амфотерный', 'Кислотный', 'Несолеобразующий'];
-        case 'Гидроксиды':
-            return ['Основания', 'Амфотерные', 'Кислоты', 'Другое'];
-        case 'Гидролиз':
-            return ['По катиону', 'По аниону', 'Гидролиз не возможен', 'И по катиону, и по аниону'];
-
-        default:
-            throw new Error('Unknown grade = ' + grade);
-    }
-};
-
 export type ChemicalType = {
     name: string;
     type: ButtonClickedType;
@@ -48,7 +32,6 @@ export function reshuffle<T>(arr: T[]): T[] {
 }
 
 // export function reshuffle<T>(arr: T[]): T[] { return arr;}
-
 
 export const formulas: { [key: string]: ChemicalType[] } = {
     Вещества: [
@@ -967,7 +950,7 @@ export const formulas: { [key: string]: ChemicalType[] } = {
         { name: '', text: '', type: 'По аниону', formula: 'KCN' },
         { name: '', text: '', type: 'По аниону', formula: 'Ba(HCO3)2' },
         { name: '', text: '', type: 'По аниону', formula: 'NaNO2' },
-//
+        //
         { name: '', text: '', type: 'Гидролиз не возможен', formula: 'RbCl' },
         { name: '', text: '', type: 'Гидролиз не возможен', formula: 'BaSO4' },
         { name: '', text: '', type: 'Гидролиз не возможен', formula: 'KMnO4' },
@@ -995,11 +978,26 @@ export const formulas: { [key: string]: ChemicalType[] } = {
         { name: '', text: '', type: 'И по катиону, и по аниону', formula: '(NH4)2HPO4' },
         { name: '', text: '', type: 'И по катиону, и по аниону', formula: '(NH4)2S' },
         { name: '', text: '', type: 'И по катиону, и по аниону', formula: '(CH3COO)3Al' },
-
     ],
 };
 
 export const GRADE_CLASS_ARRAY = Object.keys(formulas);
+
+export const getButtonNames = (grade: keyof typeof formulas): ButtonClickedType[] => {
+    switch (grade) {
+        case 'Вещества':
+            return ['Кислота', 'Соль', 'Основание', 'Оксид'];
+        case 'Оксиды':
+            return ['Основной', 'Амфотерный', 'Кислотный', 'Несолеобразующий'];
+        case 'Гидроксиды':
+            return ['Основания', 'Амфотерные', 'Кислоты', 'Другое'];
+        case 'Гидролиз':
+            return ['По катиону', 'По аниону', 'Гидролиз не возможен', 'И по катиону, и по аниону'];
+
+        default:
+            throw new Error('Unknown grade = ' + grade);
+    }
+};
 
 export const formulaRender = (str: string) => {
     const arr: string[] = [];
